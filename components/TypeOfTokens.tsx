@@ -36,7 +36,7 @@ const TypeOfTokens = (props: Props) => {
       <p className="text-grayish-white max-w-[250px] px-1 text-2xl">
         Type of tokens in my portfolio
       </p>
-      <Tabs defaultValue="allMarket" className="w-[400px]">
+      <Tabs defaultValue="allMarket" className="w-[350px]">
         <TabsList className="gap-2">
           <TabsTrigger className={triggerClasses} value="allMarket">
             All market

@@ -9,7 +9,7 @@ type Props = {
 
 const TokenItem = ({ name, amount, value, icon }: Props) => {
   return (
-    <div className="flex w-full justify-between rounded-lg border border-[#27262B] p-3">
+    <div className="flex w-full justify-between rounded-lg border border-[#27262B] bg-[#1D1C20] p-3">
       <div className="flex items-center gap-2">
         <div className="rounded-xl border border-[#27262B] bg-[#282429]/50 p-3">
           {icon}
