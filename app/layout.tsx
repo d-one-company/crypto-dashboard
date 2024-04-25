@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import './globals.css';
-import Sidebar from './web/components/Sidebar/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
