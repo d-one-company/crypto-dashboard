@@ -11,6 +11,9 @@ dependencies:
   '@radix-ui/react-avatar':
     specifier: ^1.0.4
     version: 1.0.4(@types/react-dom@18.2.25)(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)
+  '@radix-ui/react-slot':
+    specifier: ^1.0.2
+    version: 1.0.2(@types/react@18.2.79)(react@18.2.0)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -77,7 +80,7 @@ devDependencies:
     specifier: ^16.4.0
     version: 16.4.0(typescript@5.4.5)
   tailwindcss:
-    specifier: ^3.4.1
+    specifier: ^3.4.3
     version: 3.4.3
   turbo:
     specifier: ^1.13.2
