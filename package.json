@@ -2,25 +2,48 @@
   "name": "crypto-dashboard",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "cross-env NODE_NO_WARNINGS=1 next dev --turbo",
+    "build": "cross-env NODE_NO_WARNINGS=1 next build",
+    "start": "cross-env NODE_NO_WARNINGS=1 next start",
+    "lint": "pnpm run lint:js",
+    "lint:css": "stylelint \"**/*.css\" --allow-empty-input --cache --cache-strategy=content --cache-location=.stylelintcache",
+    "lint:js": "eslint \"**/*.{js,mjs,ts,tsx}\" --cache --cache-strategy=content --cache-location=.eslintjscache",
+    "lint:fix": "pnpm run lint:js --fix",
+    "prettier": "prettier \"**/*.{js,mjs,ts,tsx,md,mdx,json,yml,css}\" --check --cache --cache-strategy=content --cache-location=.prettiercache",
+    "prettier:fix": "pnpm run prettier --write",
+    "format": "pnpm run lint:fix && pnpm run prettier:fix",
+    "prepare": "husky",
+    "drizzle:studio": "drizzle-kit studio --config=./db/drizzle.config.ts --port 8080",
+    "migration:generate": "cross-env drizzle-kit generate:pg --config=./db/drizzle.config.ts",
+    "migration:push": "cross-env drizzle-kit push:pg --config=./db/drizzle.config.ts",
+    "migration:custom": "cross-env drizzle-kit generate:pg --custom --config=./db/drizzle.config.ts",
+    "db:migrate": "node --import tsx --env-file .env ./db/migrate.ts"
   },
   "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "@vercel/postgres": "^0.8.0",
     "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.2.0",
+    "drizzle-orm": "^0.30.9",
     "husky": "^9.0.11",
+    "jiti": "^1.21.0",
     "lint-staged": "^15.2.2",
     "next": "14.2.3",
+    "pg": "^8.11.5",
     "prettier": "^3.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.23.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.20.17",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "eslint-config-prettier": "^9.1.0",
@@ -28,7 +51,20 @@
     "prettier-plugin-tailwindcss": "^0.5.14",
     "stylelint": "^16.4.0",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.7.3",
     "turbo": "^1.13.2",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": "20.11.1"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "**/*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
