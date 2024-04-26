@@ -27,6 +27,7 @@
     "@t3-oss/env-nextjs": "^0.10.1",
     "@vercel/postgres": "^0.8.0",
     "clsx": "^2.1.1",
+    "bcrypt": "^5.1.1",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
@@ -35,6 +36,7 @@
     "jiti": "^1.21.0",
     "lint-staged": "^15.2.2",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "pg": "^8.11.5",
     "prettier": "^3.2.5",
     "react": "^18",
@@ -43,6 +45,7 @@
     "zod": "^3.23.4"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
