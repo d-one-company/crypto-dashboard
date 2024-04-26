@@ -9,16 +9,13 @@ type Props = {
 const PageHeader = ({ title }: Props) => {
   return (
     <div className="flex w-full justify-between">
-      <p className="text-grayish-white text-3xl">{title}</p>
+      <p className="text-3xl text-grayish-white">{title}</p>
       <div className="flex items-center gap-4">
-        <Input
-          placeholder="Search"
-          className="h-11 focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
+        <Input placeholder="Search" className="focus-visible:ring-offset h-11 focus-visible:ring-0" />
         <div className="rounded-lg bg-[#262628] p-2">
           <Bell />
         </div>
-        <Button>Deposit</Button>
+        <Button className="w-full bg-grayish-white text-black transition-colors duration-200 hover:bg-grayish-white/80">Deposit</Button>
       </div>
     </div>
   );

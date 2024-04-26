@@ -3,13 +3,7 @@
 import { ResponsiveLine } from '@nivo/line';
 import { CircleDollarSign } from 'lucide-react';
 import { Button } from '../ui/button';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  triggerClasses,
-} from '../ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger, triggerClasses } from '../ui/tabs';
 import AssetsTable from './AssetsTable';
 
 const Assets = () => {
@@ -56,22 +50,10 @@ const Assets = () => {
       volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
-          <ResponsiveLine
-            colors={'white'}
-            data={chartData}
-            layers={['lines']}
-            enableSlices="x"
-            enableTouchCrosshair
-            margin={{ bottom: -10 }}
-            curve="basis"
-          />
+          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: (
-        <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">
-          Trade
-        </Button>
-      ),
+      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
     },
     {
       id: '2',
@@ -86,22 +68,10 @@ const Assets = () => {
       volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
-          <ResponsiveLine
-            colors={'white'}
-            data={chartData}
-            layers={['lines']}
-            enableSlices="x"
-            enableTouchCrosshair
-            margin={{ bottom: -10 }}
-            curve="basis"
-          />
+          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: (
-        <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">
-          Trade
-        </Button>
-      ),
+      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
     },
     {
       id: '3',
@@ -116,22 +86,10 @@ const Assets = () => {
       volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
-          <ResponsiveLine
-            colors={'white'}
-            data={chartData}
-            layers={['lines']}
-            enableSlices="x"
-            enableTouchCrosshair
-            margin={{ bottom: -10 }}
-            curve="basis"
-          />
+          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: (
-        <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">
-          Trade
-        </Button>
-      ),
+      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
     },
   ];
 
@@ -155,7 +113,7 @@ const Assets = () => {
               New listed
             </TabsTrigger>
           </TabsList>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 text-grayish-white">
             <p className="rounded-lg bg-[#262628] px-3 py-2 text-xs">1D</p>
             <p className="rounded-lg px-3 py-2 text-xs">2W</p>
             <p className="rounded-lg px-3 py-2 text-xs">1M</p>

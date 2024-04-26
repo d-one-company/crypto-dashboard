@@ -51,14 +51,6 @@ const config = {
         'card-dark': '#1D1C20',
         'foreground-dark': '#727175',
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-      boxShadow: {
-        card: 'inset 0px 1px 0px 0px rgba(37,36,40,1), 0px 2px 2px rgba(0,0,0,0.2)',
-        button: '0px 2px 2px rgba(0,0,0,0.2)',
-      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -77,6 +69,14 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      boxShadow: {
+        card: 'inset 0px 1px 0px 0px var(--tw-shadow-color, rgba(255,0,132,1)), 0px 2px 2px rgba(0,0,0,0.2)',
+        button: '0px 2px 2px rgba(0,0,0,0.2)',
       },
     },
   },

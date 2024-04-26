@@ -1,11 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -24,14 +17,12 @@ const AssetsTable = ({ data }: Props) => {
   return (
     <Table>
       <TableHeader>
-        <TableRow>
-          <TableHead>Coin</TableHead>
-          <TableHead>Latest price</TableHead>
-          <TableHead>Dynamic</TableHead>
-          <TableHead>Volume</TableHead>
-          <TableHead>Chart</TableHead>
-          <TableHead>Action</TableHead>
-        </TableRow>
+        <TableHead className="text-sm text-gray-200/60">Coin</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Latest price</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Dynamic</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Volume</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Chart</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Action</TableHead>
       </TableHeader>
       <TableBody className="">
         {data.map(item => (
@@ -39,9 +30,7 @@ const AssetsTable = ({ data }: Props) => {
             <TableCell>{item.coin}</TableCell>
             <TableCell>{item.latestPrice}</TableCell>
             <TableCell>
-              <p className="w-fit rounded-xl bg-white px-1.5 text-black">
-                {item.dynamic}
-              </p>
+              <p className="w-fit rounded-xl bg-white px-1.5 text-black">{item.dynamic}</p>
             </TableCell>
             <TableCell>{item.volume}</TableCell>
             <TableCell>{item.chart}</TableCell>

@@ -1,4 +1,5 @@
 import DummyChart, { data } from '@/components/DummyChart';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { cloneElement } from 'react';
 
@@ -32,7 +33,7 @@ const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, cha
       <div className="flex flex-col gap-0.5 text-xs">
         <DummyChart data={data} curve="basis" />
       </div>
-      <button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</button>
+      <Button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</Button>
     </div>
   );
 };

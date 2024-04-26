@@ -128,7 +128,7 @@ devDependencies:
     specifier: ^16.4.0
     version: 16.4.0(typescript@5.4.5)
   tailwindcss:
-    specifier: ^3.4.1
+    specifier: ^3.4.3
     version: 3.4.3
   tsx:
     specifier: ^4.7.3

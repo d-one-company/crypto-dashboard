@@ -1,15 +1,4 @@
-import {
-  BadgeDollarSign,
-  Bolt,
-  Brush,
-  CircleHelp,
-  Folders,
-  Home,
-  Landmark,
-  Rows2,
-  ThumbsUp,
-  Vault,
-} from 'lucide-react';
+import { BadgeDollarSign, Bolt, Brush, CircleHelp, Folders, Home, Landmark, Rows2, ThumbsUp, Vault } from 'lucide-react';
 import Profile from './Profile';
 import SidebarItem from './SidebarItem';
 
@@ -19,14 +8,10 @@ const Sidebar = () => {
       <Profile />
       <div className="flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-[#727274]">MENU</p>
-        <SidebarItem icon={<Home />} label="Dashboard" href="/" />
+        <SidebarItem icon={<Home />} label="Dashboard" href="/dashboard" />
         <SidebarItem icon={<Vault />} label="Portfolio" href="/portfolio" />
         <SidebarItem icon={<Rows2 />} label="Market" href="/market" />
-        <SidebarItem
-          icon={<BadgeDollarSign />}
-          label="Staking"
-          href="/staking"
-        />
+        <SidebarItem icon={<BadgeDollarSign />} label="Staking" href="/staking" />
       </div>
       <div className="flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-[#727274]">MORTGAGE</p>

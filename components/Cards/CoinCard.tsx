@@ -15,7 +15,7 @@ const CoinCard = (props: Props) => {
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <span className="text-grayish-white flex items-center gap-1 text-lg">
+        <span className="flex items-center gap-1 text-lg text-grayish-white">
           Monero <p className="text-lg text-gray-200/50">Xmr</p>
         </span>
         <p className="text-sm text-gray-200/50">Hot on binance</p>
@@ -23,18 +23,16 @@ const CoinCard = (props: Props) => {
       <div className="flex flex-col items-start gap-2">
         <div className="flex w-full items-center justify-between">
           <p className="text-xs text-gray-200/50">Price</p>
-          <p className="text-grayish-white text-sm">$60</p>
+          <p className="text-sm text-grayish-white">$60</p>
         </div>
         <div className="flex w-full items-center justify-between">
           <p className="text-xs text-gray-200/50">Volume</p>
-          <p className="text-grayish-white text-sm">507.2</p>
+          <p className="text-sm text-grayish-white">507.2</p>
         </div>
       </div>
       <div className="flex items-center gap-5">
-        <Button className="text-grayish-white w-full bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21]">
-          Transfer
-        </Button>
-        <Button className="w-full">Trade</Button>
+        <Button className="w-full bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Transfer</Button>
+        <Button className="w-full bg-grayish-white text-black transition-colors duration-200 hover:bg-grayish-white/80">Trade</Button>
       </div>
     </div>
   );

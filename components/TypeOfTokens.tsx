@@ -1,12 +1,6 @@
 import { CircleDollarSign } from 'lucide-react';
 import TokenItem from './TokenItem';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  triggerClasses,
-} from './ui/tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger, triggerClasses } from './ui/tabs';
 
 type Props = {};
 
@@ -33,14 +27,12 @@ const TypeOfTokens = (props: Props) => {
   ];
 
   return (
-    <div className="flex w-[400px] flex-col gap-4">
-      <p className="px-1 text-2xl text-grayish-white">
-        Type of tokens in my portfolio
-      </p>
+    <div className="flex flex-col gap-4">
+      <p className="px-1 text-2xl text-grayish-white">Type of tokens in my portfolio</p>
       <Tabs defaultValue="allMarket">
         <TabsList className="gap-2">
           <TabsTrigger className={triggerClasses} value="allMarket">
-            All market
+            All markets
           </TabsTrigger>
           <TabsTrigger className={triggerClasses} value="crypto">
             Crypto
