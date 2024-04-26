@@ -1,6 +1,6 @@
+import { authOptions } from '@/auth';
 import { getServerSession } from 'next-auth';
 import UserProfile from './UserProfile';
-import { authOptions } from '@/auth';
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
