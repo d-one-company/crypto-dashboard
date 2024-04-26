@@ -22,9 +22,11 @@
     "db:migrate": "node --import tsx --env-file .env ./db/migrate.ts"
   },
   "dependencies": {
+    "@nivo/line": "^0.85.1",
     "@paralleldrive/cuid2": "^2.2.2",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@vercel/postgres": "^0.8.0",
+    "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
     "crypto-js": "^4.2.0",
@@ -37,6 +39,7 @@
     "prettier": "^3.2.5",
     "react": "^18",
     "react-dom": "^18",
+    "tailwind-merge": "^2.3.0",
     "zod": "^3.23.4"
   },
   "devDependencies": {
