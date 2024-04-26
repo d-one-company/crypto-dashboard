@@ -71,7 +71,7 @@ const CoinChartCard = () => {
           Sell
         </div>
       </div>
-      <div className="h-[240px] w-[600px] max-w-[600px] px-7">
+      <div className="h-[240px] w-[550px] px-7">
         <ResponsiveBar
           data={dummyData}
           keys={['buy', 'sell']}

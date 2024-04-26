@@ -19,7 +19,7 @@ const Page = () => {
         </div>
         <div className="mt-5 flex w-full gap-5 px-4">
           <div className="flex w-full flex-col gap-4">
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-14">
               <CustomisePortfolio />
               <CoinChartCard />
             </div>

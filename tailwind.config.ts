@@ -18,34 +18,6 @@ const config = {
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
         'grayish-white': '#E4E4E5',
         background: '#1A191D',
         'card-dark': '#1D1C20',
@@ -75,7 +47,7 @@ const config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       boxShadow: {
-        card: 'inset 0px 1px 0px 0px var(--tw-shadow-color, rgba(255,0,132,1)), 0px 2px 2px rgba(0,0,0,0.2)',
+        card: 'inset 0px 1px 0px 0px rgba(37,36,40,1), 0px 2px 2px rgba(0,0,0,0.2)',
         button: '0px 2px 2px rgba(0,0,0,0.2)',
       },
     },

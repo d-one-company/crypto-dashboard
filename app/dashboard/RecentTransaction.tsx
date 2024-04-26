@@ -33,7 +33,7 @@ const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, cha
       <div className="flex flex-col gap-0.5 text-xs">
         <DummyChart data={data} curve="basis" />
       </div>
-      <Button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</Button>
+      <Button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button hover:bg-gray-200/60">Trade</Button>
     </div>
   );
 };
