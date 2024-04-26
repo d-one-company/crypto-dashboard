@@ -2,12 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   prefix: '',
   theme: {
     container: {
@@ -22,7 +17,6 @@ const config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
@@ -53,6 +47,17 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
         'grayish-white': '#E4E4E5',
+        background: '#1A191D',
+        'card-dark': '#1D1C20',
+        'foreground-dark': '#727175',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      boxShadow: {
+        card: 'inset 0px 1px 0px 0px rgba(37,36,40,1), 0px 2px 2px rgba(0,0,0,0.2)',
+        button: '0px 2px 2px rgba(0,0,0,0.2)',
       },
       borderRadius: {
         lg: 'var(--radius)',
