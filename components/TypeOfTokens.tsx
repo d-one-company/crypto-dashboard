@@ -1,15 +1,16 @@
-import { cn } from '@/lib/utils';
 import { CircleDollarSign } from 'lucide-react';
 import TokenItem from './TokenItem';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  triggerClasses,
+} from './ui/tabs';
 
 type Props = {};
 
 const TypeOfTokens = (props: Props) => {
-  const triggerClasses = cn(
-    'data-[state=active]:bg-gradient-to-b from-[#2D2C36] to-[#1D1C21] hover:bg-gray-100/10 rounded-lg text-grayish-white'
-  );
-
   const dummyData = [
     {
       name: 'Xim',
@@ -33,7 +34,7 @@ const TypeOfTokens = (props: Props) => {
 
   return (
     <div className="flex flex-col gap-4">
-      <p className="text-grayish-white max-w-[250px] px-1 text-2xl">
+      <p className="max-w-[250px] px-1 text-2xl text-grayish-white">
         Type of tokens in my portfolio
       </p>
       <Tabs defaultValue="allMarket" className="w-[350px]">
