@@ -56,18 +56,18 @@ const CoinChartCard = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-[#27262B] bg-[#1D1C20] py-5">
+    <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea bg-card-dark py-5">
       <div className="flex items-center gap-1 px-7">
         <p className="text-xl text-grayish-white">ETH/USDT</p>
         <p className="text-xs text-gray-200/50">3:45 AM (UTC + 5)</p>
       </div>
       <div className="flex items-center gap-8 px-7">
-        <div className="flex items-center gap-3 text-xs text-[#DADADA]">
-          <div className="h-[5px] w-[10px] rounded-lg bg-[#DADADA]" />
+        <div className="flex items-center gap-3 text-xs text-alto">
+          <div className="h-[5px] w-[10px] rounded-lg bg-alto" />
           Buy
         </div>
-        <div className="flex items-center gap-3 text-xs text-[#6A6B6C]">
-          <div className="h-[5px] w-[10px] rounded-lg bg-[#6A6B6C]" />
+        <div className="text-navada flex items-center gap-3 text-xs">
+          <div className="bg-navada h-[5px] w-[10px] rounded-lg" />
           Sell
         </div>
       </div>
@@ -90,7 +90,7 @@ const CoinChartCard = () => {
           }}
         />
       </div>
-      <div className="h-[1px] w-full bg-[#2B2A2D]" />
+      <div className="h-[1px] w-full bg-baltic-sea" />
       <div className="flex w-full items-center justify-between px-7">
         <p className="text-xl text-grayish-white">8.9%</p>
         <div className="flex items-center gap-1">

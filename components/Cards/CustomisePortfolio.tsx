@@ -3,11 +3,11 @@ import { Vault } from 'lucide-react';
 import { Button } from '../ui/button';
 
 const CustomisePortfolio = () => {
-  const rightBackground = 'bg-gradient-to-r from-[#282830] via-[#33303B] to-[#282830]';
-  const bottomBackground = 'bg-gradient-to-b from-[#2D2C36] to-transparent';
+  const rightBackground = 'bg-gradient-to-r from-black-shark via-tuna-778 to-black-shark';
+  const bottomBackground = 'bg-gradient-to-b from-cherade to-transparent';
 
   return (
-    <div className="flex flex-grow flex-col items-start gap-6 rounded-lg border border-[#232329] bg-gradient-to-br from-[#27262A] to-[#1D1C20] py-6">
+    <div className="flex flex-grow flex-col items-start gap-6 rounded-lg border border-black-shark bg-gradient-to-br from-baltic-sea to-card-dark py-6">
       <div className="flex items-center gap-2 px-4">
         <div className={cn('rounded-full p-3', rightBackground)}>
           <Vault />
@@ -18,7 +18,7 @@ const CustomisePortfolio = () => {
         </div>
       </div>
       <div className="w-full px-4">
-        <div className="flex w-full flex-col gap-3 rounded-lg border border-[#34333B] bg-gradient-to-br from-[#27262A] to-[#1D1C20] px-8 py-3">
+        <div className="flex w-full flex-col gap-3 rounded-lg border border-tuna-778 bg-gradient-to-br from-baltic-sea to-card-dark px-8 py-3">
           <div className="flex w-full justify-between">
             <div className={cn('h-[15px] w-[70px] rounded-lg', bottomBackground)} />
             <div className={cn('size-3 rounded-full', bottomBackground)} />
@@ -29,11 +29,11 @@ const CustomisePortfolio = () => {
 
       <div className="flex flex-col items-start gap-3 px-4">
         <p className="text-grayish-white">Customise your Portfolio</p>
-        <p className="text-sm text-[#727274]">
+        <p className="text-sm text-gray-jumbo">
           A currated collection showcasing my diverse <br /> range of skills, experties and accomplishments.
         </p>
       </div>
-      <div className="h-[1px] w-full bg-[#2B2A2D]" />
+      <div className="h-[1px] w-full bg-baltic-sea" />
       <div className="w-full px-4">
         <Button className="mt-4 w-full bg-grayish-white text-black transition-colors duration-200 hover:bg-grayish-white/80">Getting Started</Button>
       </div>

@@ -20,9 +20,9 @@ const SidebarItem = ({ className, icon, label, href = '#' }: Props) => {
     <Link
       href={href}
       className={cn(
-        'flex w-full items-center gap-4 rounded-lg border border-transparent px-4 py-2 text-[#727274]',
-        'transition-colors duration-200 hover:border-[#27262B] hover:text-grayish-white',
-        selected && 'border-[#27262B] text-grayish-white',
+        'flex w-full items-center gap-4 rounded-lg border border-transparent px-4 py-2 text-gray-jumbo',
+        'transition-colors duration-200 hover:border-baltic-sea hover:text-grayish-white',
+        selected && 'border-baltic-sea text-grayish-white',
         className
       )}
     >

@@ -11,7 +11,7 @@ import TypeOfTokens from '@/components/TypeOfTokens';
 const Page = () => {
   return (
     <PageWrapper>
-      <div className="flex w-full flex-col gap-5 rounded-lg border border-[#28272D] bg-[#1A1A1E] pb-10">
+      <div className="flex w-full flex-col gap-5 rounded-lg border border-baltic-sea bg-black-shark pb-10">
         <PageTitle />
         <PageDivider />
         <div className="mt-2 p-4">

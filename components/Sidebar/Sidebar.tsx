@@ -7,14 +7,14 @@ const Sidebar = () => {
     <aside className="hidden flex-col gap-14 px-6 py-8 sm:flex">
       <Profile />
       <div className="flex flex-col items-start gap-2">
-        <p className="px-3 text-sm text-[#727274]">MENU</p>
+        <p className="px-3 text-sm text-gray-jumbo">MENU</p>
         <SidebarItem icon={<Home />} label="Dashboard" href="/dashboard" />
         <SidebarItem icon={<Vault />} label="Portfolio" href="/portfolio" />
         <SidebarItem icon={<Rows2 />} label="Market" href="/market" />
         <SidebarItem icon={<BadgeDollarSign />} label="Staking" href="/staking" />
       </div>
       <div className="flex flex-col items-start gap-2">
-        <p className="px-3 text-sm text-[#727274]">MORTGAGE</p>
+        <p className="px-3 text-sm text-gray-jumbo">MORTGAGE</p>
         <SidebarItem icon={<Folders />} label="All files" href="/files" />
         <SidebarItem icon={<ThumbsUp />} label="Rewards" href="/rewards" />
         <SidebarItem icon={<Landmark />} label="My loans" href="/loans" />

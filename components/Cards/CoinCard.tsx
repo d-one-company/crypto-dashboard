@@ -1,16 +1,14 @@
 import { ArrowUpRight, RussianRuble } from 'lucide-react';
 import { Button } from '../ui/button';
 
-type Props = {};
-
-const CoinCard = (props: Props) => {
+const CoinCard = () => {
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-[#27262B] px-7 py-5">
+    <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
       <div className="flex w-full items-center justify-between">
-        <div className="w-fit rounded-xl border border-[#27262B] bg-[#1C1C21]/50 p-5">
+        <div className="w-fit rounded-xl border border-baltic-sea bg-black-shark/50 p-5">
           <RussianRuble />
         </div>
-        <div className="w-fit rounded-full border border-[#27262B] bg-[#1C1C21]/50 p-3">
+        <div className="w-fit rounded-full border border-baltic-sea bg-black-shark/50 p-3">
           <ArrowUpRight />
         </div>
       </div>
@@ -31,7 +29,7 @@ const CoinCard = (props: Props) => {
         </div>
       </div>
       <div className="flex items-center gap-5">
-        <Button className="w-full bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Transfer</Button>
+        <Button className="w-full bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Transfer</Button>
         <Button className="w-full bg-grayish-white text-black transition-colors duration-200 hover:bg-grayish-white/80">Trade</Button>
       </div>
     </div>

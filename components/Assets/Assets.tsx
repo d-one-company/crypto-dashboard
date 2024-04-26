@@ -53,7 +53,7 @@ const Assets = () => {
           <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
+      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
     },
     {
       id: '2',
@@ -71,7 +71,7 @@ const Assets = () => {
           <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
+      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
     },
     {
       id: '3',
@@ -89,12 +89,12 @@ const Assets = () => {
           <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
         </div>
       ),
-      action: <Button className="w-fit bg-gradient-to-r from-[#1E1D21] via-[#303135] to-[#1E1D21] text-grayish-white">Trade</Button>,
+      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
     },
   ];
 
   return (
-    <div className="flex flex-col gap-3 rounded-lg border border-[#27262B] px-7 py-5">
+    <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
       <p className="text-xl text-grayish-white">Assets</p>
       <Tabs defaultValue="myAssets">
         <div className="flex w-full items-center justify-between">
@@ -105,7 +105,7 @@ const Assets = () => {
             <TabsTrigger className={triggerClasses} value="categories">
               Categories
             </TabsTrigger>
-            <div className="h-[20px] w-[2px] bg-[#38383C]" />
+            <div className="h-[20px] w-[2px] bg-tuna-778" />
             <TabsTrigger className={triggerClasses} value="hot">
               Hot
             </TabsTrigger>
@@ -114,7 +114,7 @@ const Assets = () => {
             </TabsTrigger>
           </TabsList>
           <div className="flex items-center gap-2 text-grayish-white">
-            <p className="rounded-lg bg-[#262628] px-3 py-2 text-xs">1D</p>
+            <p className="rounded-lg bg-black-shark px-3 py-2 text-xs">1D</p>
             <p className="rounded-lg px-3 py-2 text-xs">2W</p>
             <p className="rounded-lg px-3 py-2 text-xs">1M</p>
           </div>

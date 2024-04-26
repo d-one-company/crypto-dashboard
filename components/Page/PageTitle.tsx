@@ -1,10 +1,8 @@
-type Props = {};
-
-const PageTitle = (props: Props) => {
+const PageTitle = () => {
   return (
     <div className="w-full p-4">
-      <span className="flex w-full items-center text-[#727274]">
-        Trading/<p className="text-[#E4E4E5]">Portfolio</p>
+      <span className="flex w-full items-center text-gray-jumbo">
+        Trading/<p className="text-grayish-white">Portfolio</p>
       </span>
     </div>
   );

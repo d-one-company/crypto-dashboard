@@ -17,7 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <div className="flex flex-wrap overflow-hidden">
+          <div className="flex overflow-hidden">
             <Sidebar />
             {children}
           </div>

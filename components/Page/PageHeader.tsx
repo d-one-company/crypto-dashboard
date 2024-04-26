@@ -12,7 +12,7 @@ const PageHeader = ({ title }: Props) => {
       <p className="text-3xl text-grayish-white">{title}</p>
       <div className="flex items-center gap-4">
         <Input placeholder="Search" className="focus-visible:ring-offset h-11 focus-visible:ring-0" />
-        <div className="rounded-lg bg-[#262628] p-2">
+        <div className="rounded-lg bg-black-shark p-2">
           <Bell />
         </div>
         <Button className="w-full bg-grayish-white text-black transition-colors duration-200 hover:bg-grayish-white/80">Deposit</Button>

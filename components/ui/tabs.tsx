@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 const Tabs = TabsPrimitive.Root;
 
 const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({ className, ...props }, ref) => (
-  <TabsPrimitive.List ref={ref} className={cn('inline-flex h-10 items-center justify-center rounded-md p-1 text-muted-foreground', className)} {...props} />
+  <TabsPrimitive.List ref={ref} className={cn('text-muted-foreground inline-flex h-10 items-center justify-center rounded-md p-1', className)} {...props} />
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
@@ -38,7 +38,7 @@ const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Conte
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
 const triggerClasses = cn(
-  'data-[state=active]:bg-gradient-to-b from-[#2D2C36] data-[state=active]:text-grayish-white to-[#1D1C21] hover:bg-gray-100/10 rounded-lg text-grayish-white'
+  'data-[state=active]:bg-gradient-to-b from-cherade data-[state=active]:text-grayish-white to-baltic-sea hover:bg-gray-100/10 rounded-lg text-grayish-white'
 );
 
 export { Tabs, TabsContent, TabsList, TabsTrigger, triggerClasses };

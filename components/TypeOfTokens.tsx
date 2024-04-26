@@ -2,9 +2,7 @@ import { CircleDollarSign } from 'lucide-react';
 import TokenItem from './TokenItem';
 import { Tabs, TabsContent, TabsList, TabsTrigger, triggerClasses } from './ui/tabs';
 
-type Props = {};
-
-const TypeOfTokens = (props: Props) => {
+const TypeOfTokens = () => {
   const dummyData = [
     {
       name: 'Xim',
