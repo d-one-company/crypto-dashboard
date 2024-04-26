@@ -1,5 +1,6 @@
 import Assets from '@/components/Assets/Assets';
 import CoinCard from '@/components/Cards/CoinCard';
+import CoinChartCard from '@/components/Cards/CoinChartCard';
 import CustomisePortfolio from '@/components/Cards/CustomisePortfolio';
 import PageDivider from '@/components/Page/PageDivider';
 import PageHeader from '@/components/Page/PageHeader';
@@ -18,8 +19,9 @@ const Page = () => {
         </div>
         <div className="mt-5 flex w-full gap-5 px-4">
           <div className="flex w-full flex-col gap-4">
-            <div className="flex">
+            <div className="flex items-center gap-5">
               <CustomisePortfolio />
+              <CoinChartCard />
             </div>
             <Assets />
           </div>

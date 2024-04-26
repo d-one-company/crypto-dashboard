@@ -4,7 +4,7 @@ import { User } from 'lucide-react';
 
 const Profile = () => {
   return (
-    <div className="flex w-[260px] items-center gap-4 rounded-xl  border border-[#222129] bg-gradient-to-b from-[#1D1C22] to-[#18161B]/20 px-6 py-4">
+    <div className="flex items-center gap-4 rounded-xl  border border-[#222129] bg-gradient-to-b from-[#1D1C22] to-[#18161B]/20 px-6 py-4">
       <Avatar className="size-10">
         <AvatarImage
           src={generateFakeImage({ width: 300, height: 300 })}

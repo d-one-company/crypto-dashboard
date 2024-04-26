@@ -9,12 +9,12 @@ const CustomisePortfolio = () => {
   const bottomBackground = 'bg-gradient-to-b from-[#2D2C36] to-transparent';
 
   return (
-    <div className="flex flex-col items-start gap-6 rounded-lg border border-[#232329] bg-gradient-to-br from-[#27262A] to-[#1D1C20] py-6">
+    <div className="flex w-full flex-col items-start gap-6 rounded-lg border border-[#232329] bg-gradient-to-br from-[#27262A] to-[#1D1C20] py-6">
       <div className="flex items-center gap-2 px-4">
         <div className={cn('rounded-full p-3', rightBackground)}>
           <Vault />
         </div>
-        <div className="flex w-[200px] flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <div className={cn('h-[15px] w-full rounded-lg', rightBackground)} />
           <div className={cn('h-[25px] w-full rounded-lg', rightBackground)} />
         </div>

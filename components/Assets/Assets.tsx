@@ -53,7 +53,7 @@ const Assets = () => {
       ),
       latestPrice: '$10.31',
       dynamic: '11.94%',
-      volume: '507.2M',
+      volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
           <ResponsiveLine
@@ -83,7 +83,7 @@ const Assets = () => {
       ),
       latestPrice: '$10.31',
       dynamic: '11.94%',
-      volume: '507.2M',
+      volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
           <ResponsiveLine
@@ -113,7 +113,7 @@ const Assets = () => {
       ),
       latestPrice: '$10.31',
       dynamic: '11.94%',
-      volume: '507.2M',
+      volume: '507.2',
       chart: (
         <div className="h-[40px] w-[100px]">
           <ResponsiveLine

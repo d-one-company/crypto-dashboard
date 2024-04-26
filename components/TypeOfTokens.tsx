@@ -33,11 +33,11 @@ const TypeOfTokens = (props: Props) => {
   ];
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="max-w-[250px] px-1 text-2xl text-grayish-white">
+    <div className="flex w-[400px] flex-col gap-4">
+      <p className="px-1 text-2xl text-grayish-white">
         Type of tokens in my portfolio
       </p>
-      <Tabs defaultValue="allMarket" className="w-[350px]">
+      <Tabs defaultValue="allMarket">
         <TabsList className="gap-2">
           <TabsTrigger className={triggerClasses} value="allMarket">
             All market

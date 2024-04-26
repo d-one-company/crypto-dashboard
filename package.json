@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
+    "@nivo/bar": "^0.85.1",
     "@nivo/line": "^0.85.1",
     "@paralleldrive/cuid2": "^2.2.2",
     "@radix-ui/react-avatar": "^1.0.4",
