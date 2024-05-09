@@ -1,11 +1,5 @@
-import {
-  Bitcoin,
-  DotsHorizontal,
-  Ethereum,
-  Tether,
-  Trending,
-} from '@/components/icons';
-import RecentTransaction from './RecentTransaction';
+import { Bitcoin, DotsHorizontal, Ethereum, Tether, Trending } from '@/components/icons';
+import RecentTransactionsList from './RecentTransactionsList';
 
 const Dashboard = () => {
   return (
@@ -30,9 +24,7 @@ const Dashboard = () => {
             <span className="text-xs text-green-700">12% last month</span>
           </div>
           <div className="mt-4 flex items-center gap-2">
-            <button className="rounded-xl bg-white px-3.5 py-2 text-black shadow-button">
-              Balance
-            </button>
+            <button className="rounded-xl bg-white px-3.5 py-2 text-black shadow-button">Balance</button>
             <button className="px-3.5 py-2">Quick Invest</button>
             <button className="px-3.5 py-2">Actives</button>
           </div>
@@ -91,34 +83,10 @@ const Dashboard = () => {
 
       <div className="flex items-center justify-between gap-2">
         <span className="text-lg">Recent Transactions</span>
-        <button className="font-light text-foreground-dark">
-          See all coins
-        </button>
+        <button className="font-light text-foreground-dark">See all coins</button>
       </div>
-      <RecentTransaction
-        icon={<Bitcoin />}
-        label="Bitcoin"
-        symbol="BTC"
-        chance={1.41}
-        marketCap={24413.23}
-        marketCapColor="text-red-500"
-      />
-      <RecentTransaction
-        icon={<Ethereum />}
-        label="Ethereum"
-        symbol="ETH"
-        chance={1.41}
-        marketCap={1253.23}
-        marketCapColor="text-blue-500"
-      />
-      <RecentTransaction
-        icon={<Tether />}
-        label="Tether"
-        symbol="USDT"
-        chance={1.41}
-        marketCap={314224.12}
-        marketCapColor="text-green-500"
-      />
+
+      <RecentTransactionsList />
     </div>
   );
 };

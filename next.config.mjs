@@ -6,6 +6,15 @@ const jiti = _jiti(fileURLToPath(import.meta.url));
 jiti('./env.ts');
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'static.coinstats.app',
+      },
+    ],
+  },
+};
 
 export default nextConfig;
