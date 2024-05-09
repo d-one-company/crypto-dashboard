@@ -23,9 +23,3 @@ const RecentTransactionsList = () => {
 };
 
 export default RecentTransactionsList;
-
-/**
- * <RecentTransaction icon={<Bitcoin />} label="Bitcoin" symbol="BTC" chance={1.41} marketCap={24413.23} marketCapColor="text-red-500" />
-      <RecentTransaction icon={<Ethereum />} label="Ethereum" symbol="ETH" chance={1.41} marketCap={1253.23} marketCapColor="text-blue-500" />
-      <RecentTransaction icon={<Tether />} label="Tether" symbol="USDT" chance={1.41} marketCap={314224.12} marketCapColor="text-green-500" />
- */

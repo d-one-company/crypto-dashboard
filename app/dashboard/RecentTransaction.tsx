@@ -1,6 +1,7 @@
 'use client';
 
 import DummyChart, { data } from '@/components/DummyChart';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
 import { cloneElement } from 'react';
