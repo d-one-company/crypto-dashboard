@@ -1,4 +1,4 @@
-import { Bitcoin as Icon } from '@/components/icons';
+import { Ethereum, Bitcoin as Icon } from '@/components/icons';
 
 export const CURRENCIES = [
   {
@@ -9,13 +9,9 @@ export const CURRENCIES = [
   {
     name: 'Ethereum',
     symbol: 'ETH',
-    icon: <Icon />,
+    icon: <Ethereum />,
   },
-  // {
-  //   name: 'Tether',
-  //   symbol: 'USDT',
-  //   icon: <Icon />,
-  // },
+
   {
     name: 'BNB',
     symbol: 'BNB',

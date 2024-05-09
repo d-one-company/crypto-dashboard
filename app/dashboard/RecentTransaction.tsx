@@ -1,29 +1,28 @@
 'use client';
 
 import DummyChart, { data } from '@/components/DummyChart';
-import { Button } from '@/components/ui/button';
+import { ResponsiveLine } from '@nivo/line';
+// import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
 import { cloneElement } from 'react';
 
 type Props = {
-  icon: React.ReactNode;
+  icon: JSX.Element;
   label: string;
   symbol: string;
   marketCap: number;
   marketCapColor: string;
   chance: number;
+  chartData: any;
 };
 
-const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, chance }: Props) => {
-  const {
-    coinsStore: { coins },
-  } = useCoinsContext();
+const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, chance, chartData }: Props) => {
+  console.info(chartData);
 
   return (
     <div className="grid grid-cols-5 items-center gap-5 rounded-xl bg-card-dark p-5 shadow-card">
       <div className="flex items-center gap-6">
-        {icon}
+        {cloneElement(icon, { width: 26, height: 26 })}
 
         <div className="flex flex-col gap-0.5 text-xs">
           <p className="text-white">{label}</p>
@@ -39,7 +38,7 @@ const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, cha
         <p className="text-green-500">+{Intl.NumberFormat('en').format(chance)}%</p>
       </div>
       <div className="flex flex-col gap-0.5 text-xs">
-        <DummyChart data={data} curve="basis" />
+        <DummyChart data={chartData} curve="basis" />
       </div>
       <button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</button>
     </div>

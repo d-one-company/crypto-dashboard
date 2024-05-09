@@ -14,8 +14,8 @@ const CoinsProvider = ({ children }: { children: React.ReactNode }) => {
   React.useEffect(() => {
     async function run() {
       await fetchCoins();
-      //   startSocket();
-      //   readSocket();
+      startSocket();
+      readSocket();
     }
 
     run();
