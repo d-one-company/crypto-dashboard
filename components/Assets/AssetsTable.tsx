@@ -1,26 +1,16 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
-import { ResponsiveLine } from '@nivo/line';
+import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
-import { cloneElement, ReactNode } from 'react';
+import generateChartData from '@/lib/utils/generateChartData';
+import PriceChart from '../PriceChart';
+import { Button } from '../ui/button';
 
 type Props = {
-  data: {
-    id: string;
-    coin: ReactNode;
-    latestPrice: string;
-    dynamic: string;
-    volume: string;
-    chart: ReactNode;
-    action: ReactNode;
-  }[];
+  coins: Coin[];
 };
 
-const AssetsTable = ({ data }: Props) => {
-  const {
-    coinsStore: { coins },
-  } = useCoinsContext();
-
+const AssetsTable = ({ coins }: Props) => {
+  console.info(coins);
   return (
     <Table>
       <TableHeader>
@@ -38,21 +28,24 @@ const AssetsTable = ({ data }: Props) => {
               <TableRow key={coin.id}>
                 <TableCell>
                   <div className="flex items-center gap-6">
-                    {cloneElement(coin?.icon as JSX.Element, { width: 26, height: 26 })}
+                    {coin.icon}
                     <div className="flex flex-col gap-0.5 text-xs">
                       <p className="text-white">{coin.name}</p>
                       <p className="text-foreground-dark">{coin.id}</p>
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>{coin.price}</TableCell>
+                <TableCell>{new Intl.NumberFormat('en').format(coin.priceUsd)}</TableCell>
                 <TableCell>
-                  <p className="w-fit rounded-xl bg-white px-1.5 text-black">{coin.change}</p>
+                  <p className="w-fit rounded-xl bg-white px-1.5 text-black">{new Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
                 </TableCell>
-                <TableCell>{coin.marketCap}</TableCell>
-                {/* <TableCell>{item.chart}</TableCell> */}
-                {/* <TableCell>{item.chart}</TableCell> */}
-                {/* <TableCell>{item.action}</TableCell> */}
+                <TableCell>{new Intl.NumberFormat('en').format(coin.volumeUsd24Hr)}</TableCell>
+                <TableCell>
+                  <PriceChart data={[generateChartData(coin)]} curve="basis" />
+                </TableCell>
+                <TableCell>
+                  <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
