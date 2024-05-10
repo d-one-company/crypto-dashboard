@@ -2,6 +2,13 @@ import { flow } from 'mobx';
 import { useLocalObservable } from 'mobx-react-lite';
 import { CRYPTOCURRENCIES } from '@/lib/constants/cryptocurrencies';
 
+export type ChartData = {
+  circulationSupply: string;
+  date: string;
+  priceUsd: string;
+  time: number;
+}[];
+
 export type Coin = {
   id: string;
   name: string;
@@ -14,7 +21,7 @@ export type Coin = {
   supply: number;
   volumeUsd24Hr: number;
   vwap24Hr: number;
-  chartData: any;
+  chartData: ChartData;
 };
 
 export type Store = {

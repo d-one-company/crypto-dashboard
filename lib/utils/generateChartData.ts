@@ -1,14 +1,15 @@
 import type { Coin } from '../../providers/crypto/useCoinsStore';
 
 function generateChartData(coin: Coin) {
-  const min = Math.min(...coin.chartData.map((unit: any) => parseFloat(unit.priceUsd)));
+  console.info(coin.chartData);
+  const min = Math.min(...coin.chartData.map(unit => parseFloat(unit.priceUsd)));
   return {
     id: coin.symbol,
     color: 'hsl(310, 70%, 50%)',
-    data: coin.chartData.map((unit: any, idx: number) => {
+    data: coin.chartData.map((unit, idx) => {
       return {
         x: idx,
-        y: unit.priceUsd - min,
+        y: parseFloat(unit.priceUsd) - min,
       };
     }),
   };
