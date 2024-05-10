@@ -1,45 +1,39 @@
-import DummyChart, { data } from '@/components/DummyChart';
-import { Button } from '@/components/ui/button';
+'use client';
+
 import { cn } from '@/lib/utils';
-import { cloneElement } from 'react';
+import { Coin } from '@/providers/crypto/useCoinsStore';
+import generateChartData from '@/lib/utils/generateChartData';
+import PriceChart from '@/components/PriceChart';
 
 type Props = {
-  icon: JSX.Element;
-  label: string;
-  symbol: string;
-  marketCap: number;
-  marketCapColor: string;
-  chance: number;
+  coin: Coin;
 };
 
-const RecentTransaction = ({ icon, label, symbol, marketCap, marketCapColor, chance }: Props) => {
+const RecentTransaction = ({ coin }: Props) => {
   return (
     <div className="grid grid-cols-5 items-center gap-5 rounded-xl bg-card-dark p-5 shadow-card">
       <div className="flex items-center gap-6">
-        {cloneElement(icon, { width: 26, height: 26 })}
+        {coin.icon}
+
         <div className="flex flex-col gap-0.5 text-xs">
-          <p className="text-white">{label}</p>
-          <p className="text-foreground-dark">{symbol}</p>
+          <p className="text-white">{coin.name}</p>
+          <p className="text-foreground-dark">{coin.symbol}</p>
         </div>
       </div>
       <div className="flex flex-col gap-0.5 text-xs">
         <p className="text-white">Market Cap</p>
-        <p className={cn('text-red-500', marketCapColor)}>{`$${Intl.NumberFormat('en', { currency: 'USD' }).format(marketCap)}`}</p>
+        <p className={cn('text-foreground-dark')}>{Intl.NumberFormat('en', { currency: 'USD' }).format(coin.marketCapUsd)}</p>
       </div>
       <div className="flex flex-col gap-0.5 text-xs">
         <p className="text-white">24h chance</p>
-        <p className="text-green-500">+{Intl.NumberFormat('en').format(chance)}%</p>
+        <p className={cn(coin.changePercent24Hr > 0 ? 'text-green-500' : 'text-red-500')}>{Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
       </div>
       <div className="flex flex-col gap-0.5 text-xs">
-        <DummyChart data={data} curve="basis" />
+        <PriceChart data={[generateChartData(coin)]} curve="basis" />
       </div>
-      <Button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button hover:bg-gray-200/60">Trade</Button>
+      <button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</button>
     </div>
   );
-};
-
-RecentTransaction.defaultProps = {
-  marketCapColor: 'text-red-500',
 };
 
 export default RecentTransaction;

@@ -1,19 +1,16 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { ReactNode } from 'react';
+import { Coin } from '@/providers/crypto/useCoinsStore';
+import { Observer } from 'mobx-react-lite';
+import generateChartData from '@/lib/utils/generateChartData';
+import PriceChart from '../PriceChart';
+import { Button } from '../ui/button';
 
 type Props = {
-  data: {
-    id: string;
-    coin: ReactNode;
-    latestPrice: string;
-    dynamic: string;
-    volume: string;
-    chart: ReactNode;
-    action: ReactNode;
-  }[];
+  coins: Coin[];
 };
 
-const AssetsTable = ({ data }: Props) => {
+const AssetsTable = ({ coins }: Props) => {
+  console.info(coins);
   return (
     <Table>
       <TableHeader>
@@ -24,20 +21,36 @@ const AssetsTable = ({ data }: Props) => {
         <TableHead className="text-sm text-gray-200/60">Chart</TableHead>
         <TableHead className="text-sm text-gray-200/60">Action</TableHead>
       </TableHeader>
-      <TableBody className="">
-        {data.map(item => (
-          <TableRow key={item.id}>
-            <TableCell>{item.coin}</TableCell>
-            <TableCell>{item.latestPrice}</TableCell>
-            <TableCell>
-              <p className="w-fit rounded-xl bg-white px-1.5 text-black">{item.dynamic}</p>
-            </TableCell>
-            <TableCell>{item.volume}</TableCell>
-            <TableCell>{item.chart}</TableCell>
-            <TableCell>{item.action}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
+      <Observer>
+        {() => (
+          <TableBody>
+            {coins.slice(0, 3).map(coin => (
+              <TableRow key={coin.id}>
+                <TableCell>
+                  <div className="flex items-center gap-6">
+                    {coin.icon}
+                    <div className="flex flex-col gap-0.5 text-xs">
+                      <p className="text-white">{coin.name}</p>
+                      <p className="text-foreground-dark">{coin.id}</p>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>{new Intl.NumberFormat('en').format(coin.priceUsd)}</TableCell>
+                <TableCell>
+                  <p className="w-fit rounded-xl bg-white px-1.5 text-black">{new Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
+                </TableCell>
+                <TableCell>{new Intl.NumberFormat('en').format(coin.volumeUsd24Hr)}</TableCell>
+                <TableCell>
+                  <PriceChart data={[generateChartData(coin)]} curve="basis" />
+                </TableCell>
+                <TableCell>
+                  <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        )}
+      </Observer>
     </Table>
   );
 };

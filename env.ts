@@ -9,6 +9,9 @@ export const env = createEnv({
   client: {
     //
   },
+  shared: {
+    //
+  },
   runtimeEnv: {
     POSTGRES_URL: process.env.POSTGRES_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,

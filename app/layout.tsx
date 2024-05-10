@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
 import Sidebar from '../components/Sidebar/Sidebar';
 import './globals.css';
+import CoinsProvider from '@/providers/crypto/CoinsProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,10 +18,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={inter.className}>
         <SessionProvider>
-          <div className="flex overflow-hidden">
-            <Sidebar />
-            {children}
-          </div>
+          <CoinsProvider>
+            <div className="flex overflow-hidden">
+              <Sidebar />
+              {children}
+            </div>
+          </CoinsProvider>
         </SessionProvider>
       </body>
     </html>

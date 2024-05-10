@@ -1,97 +1,13 @@
 'use client';
 
-import { ResponsiveLine } from '@nivo/line';
-import { CircleDollarSign } from 'lucide-react';
-import { Button } from '../ui/button';
+import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
 import { Tabs, TabsContent, TabsList, TabsTrigger, triggerClasses } from '../ui/tabs';
 import AssetsTable from './AssetsTable';
 
 const Assets = () => {
-  const chartData = [
-    {
-      id: 'stellar',
-      color: 'hsl(310, 70%, 50%)',
-      data: [
-        {
-          x: '1',
-          y: 8,
-        },
-        {
-          x: '2',
-          y: 7,
-        },
-        {
-          x: '3',
-          y: 13,
-        },
-        {
-          x: '4',
-          y: 13,
-        },
-        {
-          x: '5',
-          y: 9,
-        },
-      ],
-    },
-  ];
-
-  const dummyData = [
-    {
-      id: '1',
-      coin: (
-        <div className="flex items-center gap-2 text-sm text-grayish-white">
-          <CircleDollarSign />
-          Stellar <p className="text-cs text-gray-200/50">Xml</p>
-        </div>
-      ),
-      latestPrice: '$10.31',
-      dynamic: '11.94%',
-      volume: '507.2',
-      chart: (
-        <div className="h-[40px] w-[100px]">
-          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
-        </div>
-      ),
-      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
-    },
-    {
-      id: '2',
-      coin: (
-        <div className="flex items-center gap-2 text-sm text-grayish-white">
-          <CircleDollarSign />
-          Hedera <p className="text-cs text-gray-200/50">Hbar</p>
-        </div>
-      ),
-      latestPrice: '$10.31',
-      dynamic: '11.94%',
-      volume: '507.2',
-      chart: (
-        <div className="h-[40px] w-[100px]">
-          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
-        </div>
-      ),
-      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
-    },
-    {
-      id: '3',
-      coin: (
-        <div className="flex items-center gap-2 text-sm text-grayish-white">
-          <CircleDollarSign />
-          Cardano <p className="text-cs text-gray-200/50">Ada</p>
-        </div>
-      ),
-      latestPrice: '$10.31',
-      dynamic: '11.94%',
-      volume: '507.2',
-      chart: (
-        <div className="h-[40px] w-[100px]">
-          <ResponsiveLine colors={'white'} data={chartData} layers={['lines']} enableSlices="x" enableTouchCrosshair margin={{ bottom: -10 }} curve="basis" />
-        </div>
-      ),
-      action: <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>,
-    },
-  ];
+  const {
+    coinsStore: { coins },
+  } = useCoinsContext();
 
   return (
     <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
@@ -120,16 +36,16 @@ const Assets = () => {
           </div>
         </div>
         <TabsContent className="mt-5 gap-2" value="myAssets">
-          <AssetsTable data={dummyData} />
+          <AssetsTable coins={coins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="categories">
-          <AssetsTable data={dummyData} />
+          <AssetsTable coins={coins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="hot">
-          <AssetsTable data={dummyData} />
+          <AssetsTable coins={coins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="newListed">
-          <AssetsTable data={dummyData} />
+          <AssetsTable coins={coins} />
         </TabsContent>
       </Tabs>
     </div>
