@@ -10,7 +10,6 @@ type Props = {
 };
 
 const AssetsTable = ({ coins }: Props) => {
-  console.info(coins);
   return (
     <Table>
       <TableHeader>
