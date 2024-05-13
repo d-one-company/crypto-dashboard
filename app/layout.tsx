@@ -19,7 +19,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={inter.className}>
         <SessionProvider>
           <CoinsProvider>
-            <div className="flex overflow-hidden">
+            <div className="flex md:grid md:grid-cols-[280px_auto]">
               <Sidebar />
               {children}
             </div>
