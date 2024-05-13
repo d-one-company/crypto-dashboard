@@ -4,7 +4,7 @@ import SidebarItem from './SidebarItem';
 
 const Sidebar = () => {
   return (
-    <aside className="hidden flex-col gap-14 px-6 py-8 sm:flex">
+    <aside className="sticky top-0 col-span-1 hidden max-h-screen flex-col gap-14 px-6 py-8 sm:flex">
       <Profile />
       <div className="flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-gray-jumbo">MENU</p>

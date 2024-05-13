@@ -25,7 +25,7 @@ const Page = () => {
             </div>
             <Assets />
           </div>
-          <div className="flex flex-col gap-10">
+          <div className="hidden flex-col gap-10 2xl:flex">
             <TypeOfTokens />
             <CoinCard />
           </div>

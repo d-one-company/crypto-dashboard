@@ -35,7 +35,9 @@ const AssetsTable = ({ coins }: Props) => {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>{new Intl.NumberFormat('en').format(coin.priceUsd)}</TableCell>
+                <TableCell>
+                  <span className="flex w-[90px]">{new Intl.NumberFormat('en').format(coin.priceUsd)}</span>
+                </TableCell>
                 <TableCell>
                   <p className="w-fit rounded-xl bg-white px-1.5 text-black">{new Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
                 </TableCell>
