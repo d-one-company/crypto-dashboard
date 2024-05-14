@@ -5,26 +5,26 @@ import AssetsTable from '../Assets/AssetsTable';
 import InfoContainer from './InfoContainer';
 
 const formatNumber = (number: number): string => {
-  return number.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  const formattedNumber = Number.parseFloat(number.toString()).toFixed(2);
+  return parseFloat(formattedNumber).toLocaleString('en-US');
 };
 
 const Market = () => {
   const {
     coinsStore: { coins },
+    isLoading,
   } = useCoinsContext();
+
+  if (isLoading) null;
 
   const totalMarketCap = coins.reduce((acc, coin) => {
     const marketCapValue = parseFloat(String(coin.marketCapUsd));
     return acc + (marketCapValue || 0);
   }, 0);
 
-  const totalVolume24Hr = coins.reduce((acc, coin) => {
-    const volumeValue = parseFloat(String(coin.volumeUsd24Hr));
-    return acc + (volumeValue || 0);
-  }, 0);
+  const totalVolume24Hr = coins.reduce((acc, coin) => acc + (coin.volumeUsd24Hr || 0), 0);
 
   const btc = coins.find(coin => coin.id === 'bitcoin');
-
   const btcMarketCap = btc ? btc.marketCapUsd : 0;
   const btcDominance = (btcMarketCap / totalMarketCap) * 100;
 
