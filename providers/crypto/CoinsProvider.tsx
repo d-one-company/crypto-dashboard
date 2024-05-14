@@ -1,17 +1,17 @@
 'use client';
 
-import * as React from 'react';
-import useCoinsStore from './useCoinsStore';
+import { ReactNode, createContext, useContext, useEffect } from 'react';
 import type { Store } from './useCoinsStore';
+import useCoinsStore from './useCoinsStore';
 
-const CoinsContext = React.createContext<{ coinsStore: Store }>(undefined as any);
-export const useCoinsContext = () => React.useContext(CoinsContext);
+const CoinsContext = createContext<{ coinsStore: Store }>(undefined as any);
+export const useCoinsContext = () => useContext(CoinsContext);
 
-const CoinsProvider = ({ children }: { children: React.ReactNode }) => {
+const CoinsProvider = ({ children }: { children: ReactNode }) => {
   const coinsStore = useCoinsStore();
   const { fetchCoins, startSocket, readSocket } = coinsStore;
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function run() {
       await fetchCoins();
       startSocket();

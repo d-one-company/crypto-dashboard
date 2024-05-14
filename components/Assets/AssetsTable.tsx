@@ -1,16 +1,13 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import generateChartData from '@/lib/utils/generateChartData';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
-import generateChartData from '@/lib/utils/generateChartData';
 import PriceChart from '../PriceChart';
 import { Button } from '../ui/button';
 
-type Props = {
-  coins: Coin[];
-};
+type Props = { coins: Coin[] };
 
 const AssetsTable = ({ coins }: Props) => {
-  console.info(coins);
   return (
     <Table>
       <TableHeader>
@@ -24,7 +21,7 @@ const AssetsTable = ({ coins }: Props) => {
       <Observer>
         {() => (
           <TableBody>
-            {coins.slice(0, 3).map(coin => (
+            {coins.map(coin => (
               <TableRow key={coin.id}>
                 <TableCell>
                   <div className="flex items-center gap-6">
