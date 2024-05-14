@@ -9,6 +9,8 @@ const Assets = () => {
     coinsStore: { coins },
   } = useCoinsContext();
 
+  const firstThreeCoins = coins.slice(0, 3);
+
   return (
     <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
       <p className="text-xl text-grayish-white">Assets</p>
@@ -36,16 +38,16 @@ const Assets = () => {
           </div>
         </div>
         <TabsContent className="mt-5 gap-2" value="myAssets">
-          <AssetsTable coins={coins} />
+          <AssetsTable coins={firstThreeCoins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="categories">
-          <AssetsTable coins={coins} />
+          <AssetsTable coins={firstThreeCoins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="hot">
-          <AssetsTable coins={coins} />
+          <AssetsTable coins={firstThreeCoins} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="newListed">
-          <AssetsTable coins={coins} />
+          <AssetsTable coins={firstThreeCoins} />
         </TabsContent>
       </Tabs>
     </div>
