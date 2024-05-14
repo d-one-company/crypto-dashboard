@@ -1,5 +1,6 @@
 import SessionProvider from '@/providers/SessionProvider';
 import CoinsProvider from '@/providers/crypto/CoinsProvider';
+import ExchangesProvider from '@/providers/crypto/ExchangesProvider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
@@ -19,10 +20,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={inter.className}>
         <SessionProvider>
           <CoinsProvider>
-            <div className="flex md:grid md:grid-cols-[280px_auto]">
-              <Sidebar />
-              {children}
-            </div>
+            <ExchangesProvider>
+              <div className="flex md:grid md:grid-cols-[280px_auto]">
+                <Sidebar />
+                {children}
+              </div>
+            </ExchangesProvider>
           </CoinsProvider>
         </SessionProvider>
       </body>
