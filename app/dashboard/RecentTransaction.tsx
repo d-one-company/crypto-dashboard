@@ -1,5 +1,6 @@
 'use client';
 
+import { Bitcoin } from '@/components/icons';
 import PriceChart from '@/components/PriceChart';
 import Supply from '@/components/supply/Supply';
 import { cn } from '@/lib/utils';
@@ -18,7 +19,7 @@ const RecentTransaction = ({ coin }: Props) => {
         <div className="flex items-center gap-4">
           <span className="text-sm text-foreground-dark">{coin.rank}</span>
 
-          {coin.icon}
+          {coin?.icon ? coin.icon : <Bitcoin />}
         </div>
 
         <div className="flex flex-col gap-0.5 text-xs">
