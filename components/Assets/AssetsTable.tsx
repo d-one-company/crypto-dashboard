@@ -4,11 +4,18 @@ import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
 import PriceChart from '../PriceChart';
 import { Button } from '../ui/button';
+import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
+import TableSkeleton from './TableSkeleton';
+import { Bitcoin } from '../icons';
 
 type Props = { coins: Coin[] };
 
 const AssetsTable = ({ coins }: Props) => {
-  return (
+  const { isLoading } = useCoinsContext();
+
+  return isLoading ? (
+    <TableSkeleton />
+  ) : (
     <Table>
       <TableHeader>
         <TableHead className="text-sm text-gray-200/60">Coin</TableHead>
@@ -18,14 +25,15 @@ const AssetsTable = ({ coins }: Props) => {
         <TableHead className="text-sm text-gray-200/60">Chart</TableHead>
         <TableHead className="text-sm text-gray-200/60">Action</TableHead>
       </TableHeader>
+
       <Observer>
         {() => (
           <TableBody>
-            {coins.map(coin => (
-              <TableRow key={coin.id}>
+            {coins.map((coin, idx) => (
+              <TableRow key={`${coin.id}-${idx}`}>
                 <TableCell>
                   <div className="flex items-center gap-6">
-                    {coin.icon}
+                    {coin.icon ? coin.icon : <Bitcoin />}
                     <div className="flex flex-col gap-0.5 text-xs">
                       <p className="text-white">{coin.name}</p>
                       <p className="text-foreground-dark">{coin.id}</p>
