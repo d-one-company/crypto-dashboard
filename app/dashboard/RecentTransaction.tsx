@@ -4,6 +4,8 @@ import { cn } from '@/lib/utils';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import generateChartData from '@/lib/utils/generateChartData';
 import PriceChart from '@/components/PriceChart';
+import Supply from '@/components/supply/Supply';
+import { Observer } from 'mobx-react-lite';
 
 type Props = {
   coin: Coin;
@@ -11,19 +13,35 @@ type Props = {
 
 const RecentTransaction = ({ coin }: Props) => {
   return (
-    <div className="grid grid-cols-5 items-center gap-5 rounded-xl bg-card-dark p-5 shadow-card">
+    <div className="grid w-full grid-cols-5 gap-5 rounded-xl bg-card-dark p-5 shadow-card xl:grid-cols-6">
       <div className="flex items-center gap-6">
-        {coin.icon}
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-foreground-dark">{coin.rank}</span>
+
+          {coin.icon}
+        </div>
 
         <div className="flex flex-col gap-0.5 text-xs">
           <p className="text-white">{coin.name}</p>
           <p className="text-foreground-dark">{coin.symbol}</p>
         </div>
       </div>
-      <div className="flex flex-col gap-0.5 text-xs">
+
+      <Observer>
+        {() => (
+          <div className="flex flex-col items-start justify-start gap-1 text-sm">
+            <span className="text-sm text-white">Price</span>
+            <span className="text-foreground-dark">{Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(coin.priceUsd)}</span>
+          </div>
+        )}
+      </Observer>
+
+      <div className="hidden flex-col justify-center gap-0.5 text-xs xl:flex">
         <p className="text-white">Market Cap</p>
         <p className={cn('text-foreground-dark')}>{Intl.NumberFormat('en', { currency: 'USD' }).format(coin.marketCapUsd)}</p>
       </div>
+
+      <Supply supply={coin.supply} maxSupply={coin.maxSupply} symbol={coin.symbol} />
       <div className="flex flex-col gap-0.5 text-xs">
         <p className="text-white">24h chance</p>
         <p className={cn(coin.changePercent24Hr > 0 ? 'text-green-500' : 'text-red-500')}>{Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
@@ -31,7 +49,6 @@ const RecentTransaction = ({ coin }: Props) => {
       <div className="flex flex-col gap-0.5 text-xs">
         <PriceChart data={[generateChartData(coin)]} curve="basis" />
       </div>
-      <button className="ml-auto w-fit rounded-xl bg-white px-4 py-2 text-black shadow-button">Trade</button>
     </div>
   );
 };

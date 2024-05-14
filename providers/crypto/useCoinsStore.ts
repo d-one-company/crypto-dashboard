@@ -20,6 +20,7 @@ export type Coin = {
   maxSupply: number;
   supply: number;
   volumeUsd24Hr: number;
+  rank: number;
   vwap24Hr: number;
   chartData: ChartData;
 };

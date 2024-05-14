@@ -1,7 +1,6 @@
 import type { Coin } from '../../providers/crypto/useCoinsStore';
 
 function generateChartData(coin: Coin) {
-  console.info(coin.chartData);
   const min = Math.min(...coin.chartData.map(unit => parseFloat(unit.priceUsd)));
   return {
     id: coin.symbol,
