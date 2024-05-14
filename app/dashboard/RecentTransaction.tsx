@@ -1,10 +1,10 @@
 'use client';
 
-import { cn } from '@/lib/utils';
-import { Coin } from '@/providers/crypto/useCoinsStore';
-import generateChartData from '@/lib/utils/generateChartData';
 import PriceChart from '@/components/PriceChart';
 import Supply from '@/components/supply/Supply';
+import { cn } from '@/lib/utils';
+import generateChartData from '@/lib/utils/generateChartData';
+import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
 
 type Props = {
@@ -43,7 +43,7 @@ const RecentTransaction = ({ coin }: Props) => {
 
       <Supply supply={coin.supply} maxSupply={coin.maxSupply} symbol={coin.symbol} />
       <div className="flex flex-col gap-0.5 text-xs">
-        <p className="text-white">24h chance</p>
+        <p className="text-white">24h</p>
         <p className={cn(coin.changePercent24Hr > 0 ? 'text-green-500' : 'text-red-500')}>{Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
       </div>
       <div className="flex flex-col gap-0.5 text-xs">
