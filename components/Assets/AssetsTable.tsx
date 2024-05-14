@@ -22,7 +22,7 @@ const AssetsTable = ({ coins }: Props) => {
         {() => (
           <TableBody>
             {coins.map(coin => (
-              <TableRow key={coin.id}>
+              <TableRow className="border-b-gray-jumbo" key={coin.id}>
                 <TableCell>
                   <div className="flex items-center gap-6">
                     {coin.icon}
