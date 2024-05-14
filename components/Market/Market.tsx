@@ -1,7 +1,6 @@
 'use client';
 
 import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
-import { useEffect, useState } from 'react';
 import AssetsTable from '../Assets/AssetsTable';
 import InfoContainer from './InfoContainer';
 
@@ -10,12 +9,9 @@ const formatNumber = (number: number): string => {
 };
 
 const Market = () => {
-  const { coinsStore } = useCoinsContext();
-  const [coins, setCoins] = useState(coinsStore.coins);
-
-  useEffect(() => {
-    setCoins(coinsStore.coins);
-  }, [coinsStore.coins]); // Dependency on the coins data from the context, ensures re-render on updates.
+  const {
+    coinsStore: { coins },
+  } = useCoinsContext();
 
   const totalMarketCap = coins.reduce((acc, coin) => {
     const marketCapValue = parseFloat(String(coin.marketCapUsd));
@@ -30,11 +26,11 @@ const Market = () => {
   const btc = coins.find(coin => coin.id === 'bitcoin');
 
   const btcMarketCap = btc ? btc.marketCapUsd : 0;
-  const btcDominance = btcMarketCap && totalMarketCap ? (btcMarketCap / totalMarketCap) * 100 : 0;
+  const btcDominance = (btcMarketCap / totalMarketCap) * 100;
 
   return (
     <div className="flex w-full flex-col gap-10">
-      <h1 className="mt-20 self-center text-2xl font-bold">Todays Crypto Prices by Market Cap</h1>
+      <h1 className="mt-20 self-center text-2xl font-bold">Today&apos;s Crypto Prices by Market Cap</h1>
       <div className="flex w-full justify-between gap-10">
         <InfoContainer text="Market Cap" percentage={12} value={`$${formatNumber(totalMarketCap)}`} />
         <InfoContainer text="Volume 24h" percentage={12} value={`$${formatNumber(totalVolume24Hr)}`} />
