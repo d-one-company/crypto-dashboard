@@ -32,6 +32,7 @@ const Market = () => {
     <div className="flex w-full flex-col gap-10">
       <h1 className="mt-20 self-center text-2xl font-bold">Today&apos;s Crypto Prices by Market Cap</h1>
       <div className="flex w-full justify-between gap-10">
+        {/* todo: figure out how to calcualte the percentages */}
         <InfoContainer text="Market Cap" percentage={12} value={`$${formatNumber(totalMarketCap)}`} />
         <InfoContainer text="Volume 24h" percentage={12} value={`$${formatNumber(totalVolume24Hr)}`} />
         <InfoContainer text="BTC Dominance" percentage={12} value={`${formatNumber(btcDominance)}%`} />
