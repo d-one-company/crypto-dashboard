@@ -11,7 +11,7 @@ const Sidebar = () => {
         <SidebarItem icon={<Home />} label="Dashboard" href="/dashboard" />
         <SidebarItem icon={<Vault />} label="Portfolio" href="/portfolio" />
         <SidebarItem icon={<Rows2 />} label="Market" href="/market" />
-        <SidebarItem icon={<BadgeDollarSign />} label="Staking" href="/staking" />
+        <SidebarItem icon={<BadgeDollarSign />} label="Exchanges" href="/exchanges" />
       </div>
       <div className="flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-gray-jumbo">MORTGAGE</p>
