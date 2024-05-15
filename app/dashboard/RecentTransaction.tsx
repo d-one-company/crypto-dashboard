@@ -7,9 +7,7 @@ import generateChartData from '@/lib/utils/generateChartData';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
 
-type Props = {
-  coin: Coin;
-};
+type Props = { coin: Coin };
 
 const RecentTransaction = ({ coin }: Props) => {
   return (
@@ -17,32 +15,27 @@ const RecentTransaction = ({ coin }: Props) => {
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-4">
           <span className="text-sm text-foreground-dark">{coin.rank}</span>
-
           {coin.icon}
         </div>
-
         <div className="flex flex-col gap-0.5 text-xs">
           <p className="text-white">{coin.name}</p>
           <p className="text-foreground-dark">{coin.symbol}</p>
         </div>
       </div>
-
       <Observer>
         {() => (
-          <div className="flex flex-col items-start justify-start gap-1 text-sm">
-            <span className="text-sm text-white">Price</span>
+          <div className="flex flex-col justify-center gap-0.5 text-xs">
+            <span className="text-white">Price</span>
             <span className="text-foreground-dark">{Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(coin.priceUsd)}</span>
           </div>
         )}
       </Observer>
-
       <div className="hidden flex-col justify-center gap-0.5 text-xs xl:flex">
         <p className="text-white">Market Cap</p>
         <p className={cn('text-foreground-dark')}>{Intl.NumberFormat('en', { currency: 'USD' }).format(coin.marketCapUsd)}</p>
       </div>
-
       <Supply supply={coin.supply} maxSupply={coin.maxSupply} symbol={coin.symbol} />
-      <div className="flex flex-col gap-0.5 text-xs">
+      <div className="flex flex-col justify-center gap-0.5 text-xs">
         <p className="text-white">24h</p>
         <p className={cn(coin.changePercent24Hr > 0 ? 'text-green-500' : 'text-red-500')}>{Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
       </div>

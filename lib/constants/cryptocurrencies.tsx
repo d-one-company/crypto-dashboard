@@ -1,4 +1,7 @@
-import { Ethereum, Bitcoin, Tether } from '@/components/icons';
+import { Bitcoin, Ethereum, Tether } from '@/components/icons';
+import BinanceCoin from '@/components/icons/crypto/BinanceCoin';
+import Dogecoin from '@/components/icons/crypto/Dogecoin';
+import Soalna from '@/components/icons/crypto/Solana';
 
 export const CRYPTOCURRENCIES = [
   {
@@ -15,12 +18,12 @@ export const CRYPTOCURRENCIES = [
   },
   {
     id: 'binance-coin',
-    icon: <Bitcoin />,
+    icon: <BinanceCoin />,
   },
 
   {
     id: 'solana',
-    icon: <Bitcoin />,
+    icon: <Soalna />,
   },
   {
     id: 'xrp',
@@ -28,7 +31,7 @@ export const CRYPTOCURRENCIES = [
   },
   {
     id: 'dogecoin',
-    icon: <Bitcoin />,
+    icon: <Dogecoin />,
   },
   {
     id: 'eos',
