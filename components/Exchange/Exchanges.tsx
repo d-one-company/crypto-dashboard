@@ -8,7 +8,7 @@ const Exchanges = () => {
 
   return (
     <div className="flex w-full flex-col gap-10">
-      <h1 className="mt-20 self-center text-2xl font-bold">Exchanges</h1>
+      <h1 className="mt-20 text-2xl font-bold">Exchanges</h1>
       <ExchangesTable exchanges={exchanges} />
     </div>
   );
