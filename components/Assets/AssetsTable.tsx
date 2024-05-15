@@ -1,9 +1,10 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader } from '@/components/ui/table';
 import generateChartData from '@/lib/utils/generateChartData';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
 import PriceChart from '../PriceChart';
 import { Button } from '../ui/button';
+import AnimatedTableRow from './AnimatedTableRow';
 
 type Props = { coins: Coin[] };
 
@@ -22,7 +23,7 @@ const AssetsTable = ({ coins }: Props) => {
         {() => (
           <TableBody>
             {coins.map(coin => (
-              <TableRow className="border-b-gray-jumbo" key={coin.id}>
+              <AnimatedTableRow coin={coin} key={coin.id}>
                 <TableCell>
                   <div className="flex items-center gap-6">
                     {coin.icon}
@@ -45,7 +46,7 @@ const AssetsTable = ({ coins }: Props) => {
                 <TableCell>
                   <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>
                 </TableCell>
-              </TableRow>
+              </AnimatedTableRow>
             ))}
           </TableBody>
         )}
