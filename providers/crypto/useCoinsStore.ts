@@ -1,6 +1,6 @@
+import { CRYPTOCURRENCIES } from '@/lib/constants/cryptocurrencies';
 import { flow } from 'mobx';
 import { useLocalObservable } from 'mobx-react-lite';
-import { CRYPTOCURRENCIES } from '@/lib/constants/cryptocurrencies';
 
 export type ChartData = {
   circulationSupply: string;
@@ -206,13 +206,28 @@ const useCoinsStore = () => {
 
     readSocket: () => {
       if (!store.socket) {
-        console.error('socket not initialized');
+        console.error('Socket not initialized');
         return;
       }
 
-      store.socket.onmessage = (event: any) => {
-        const newPrices = JSON.parse(event.data);
-        store.changeCoinsPrice(newPrices);
+      let messageBuffer: string | null = null;
+      let processingInterval = null;
+
+      store.socket.onmessage = event => {
+        messageBuffer = event.data;
+      };
+
+      processingInterval = setInterval(() => {
+        if (messageBuffer) {
+          const newPrices = JSON.parse(messageBuffer);
+          store.changeCoinsPrice(newPrices);
+          messageBuffer = null;
+        }
+      }, 2000);
+
+      store.socket.onclose = () => {
+        if (processingInterval) clearInterval(processingInterval);
+        setTimeout(() => store.startSocket(), 5000);
       };
     },
   }));

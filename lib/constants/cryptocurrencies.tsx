@@ -1,4 +1,10 @@
-import { Ethereum, Bitcoin, Tether } from '@/components/icons';
+import { Bitcoin, Ethereum, Tether } from '@/components/icons';
+import BinanceCoin from '@/components/icons/crypto/BinanceCoin';
+import Dogecoin from '@/components/icons/crypto/Dogecoin';
+import Litecoin from '@/components/icons/crypto/Litecoin';
+import Monero from '@/components/icons/crypto/Monero';
+import Soalna from '@/components/icons/crypto/Solana';
+import XRP from '@/components/icons/crypto/XRP';
 
 export const CRYPTOCURRENCIES = [
   {
@@ -15,20 +21,20 @@ export const CRYPTOCURRENCIES = [
   },
   {
     id: 'binance-coin',
-    icon: <Bitcoin />,
+    icon: <BinanceCoin />,
   },
 
   {
     id: 'solana',
-    icon: <Bitcoin />,
+    icon: <Soalna />,
   },
   {
     id: 'xrp',
-    icon: <Bitcoin />,
+    icon: <XRP />,
   },
   {
     id: 'dogecoin',
-    icon: <Bitcoin />,
+    icon: <Dogecoin />,
   },
   {
     id: 'eos',
@@ -64,7 +70,7 @@ export const CRYPTOCURRENCIES = [
   },
   {
     id: 'litecoin',
-    icon: <Bitcoin />,
+    icon: <Litecoin />,
   },
   {
     id: 'ethereum-classic',
@@ -77,5 +83,9 @@ export const CRYPTOCURRENCIES = [
   {
     id: 'stellar',
     icon: <Bitcoin />,
+  },
+  {
+    id: 'monero',
+    icon: <Monero />,
   },
 ];
