@@ -6,11 +6,8 @@ import AssetsTable from './AssetsTable';
 
 const Assets = () => {
   const {
-    coinsStore: { coins },
+    coinsStore: { assets },
   } = useCoinsContext();
-
-  const threeCurrenciesIds = ['monero', 'xrp', 'litecoin'];
-  const threeCurrencies = coins.filter(coin => threeCurrenciesIds.includes(coin.id)).slice(0, 3);
 
   return (
     <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
@@ -39,16 +36,16 @@ const Assets = () => {
           </div>
         </div>
         <TabsContent className="mt-5 gap-2" value="myAssets">
-          <AssetsTable coins={threeCurrencies} />
+          <AssetsTable coins={assets} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="categories">
-          <AssetsTable coins={threeCurrencies} />
+          <AssetsTable coins={assets} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="hot">
-          <AssetsTable coins={threeCurrencies} />
+          <AssetsTable coins={assets} />
         </TabsContent>
         <TabsContent className="mt-5 gap-2" value="newListed">
-          <AssetsTable coins={threeCurrencies} />
+          <AssetsTable coins={assets} />
         </TabsContent>
       </Tabs>
     </div>

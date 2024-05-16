@@ -27,9 +27,13 @@ export type Coin = {
 
 export type Store = {
   coins: Coin[];
+  recentCoins: Coin[];
+  assets: Coin[];
   socket: WebSocket | null;
   cachedCoins: Map<string, Coin[]>;
   setCoinsData: (data: Coin[]) => void;
+  setAssetsData: (data: Coin[]) => void;
+  setRecentCoinsData: (data: Coin[]) => void;
   changeCoinsPrice: (data: Record<string, number>) => void;
   fetchCoins: () => any;
   startSocket: () => void;
@@ -51,6 +55,8 @@ export type Store = {
 const useCoinsStore = () => {
   const store = useLocalObservable<Store>(() => ({
     coins: [],
+    recentCoins: [],
+    assets: [],
     socket: null,
     page: 0,
     hasNextPage: true,
@@ -61,6 +67,24 @@ const useCoinsStore = () => {
       limit: 10,
       hasNextPage: true,
       hasPrevPage: false,
+    },
+
+    setAssetsData: (data: Coin[]) => {
+      for (let i = 0; i < data.length; i++) {
+        const index = store.assets.findIndex(c => c.id === data[i].id);
+        if (index === -1) {
+          store.assets.push(data[i]);
+        }
+      }
+    },
+
+    setRecentCoinsData: (data: Coin[]) => {
+      for (let i = 0; i < data.length; i++) {
+        const index = store.recentCoins.findIndex(c => c.id === data[i].id);
+        if (index === -1) {
+          store.recentCoins.push(data[i]);
+        }
+      }
     },
 
     setCoinsData: (data: Coin[]) => {
@@ -76,6 +100,15 @@ const useCoinsStore = () => {
         const index = store.coins.findIndex(c => c.id === coinId);
         if (index !== -1) {
           store.coins[index].priceUsd = data[coinId];
+        }
+        const recentIndex = store.recentCoins.findIndex(c => c.id === coinId);
+        if (recentIndex !== -1) {
+          store.recentCoins[recentIndex].priceUsd = data[coinId];
+        }
+
+        const assetsIndex = store.assets.findIndex(c => c.id === coinId);
+        if (assetsIndex !== -1) {
+          store.assets[assetsIndex].priceUsd = data[coinId];
         }
       }
     },
@@ -102,6 +135,47 @@ const useCoinsStore = () => {
       );
 
       store.setCoinsData(finalCoinsData);
+
+      const recentCoinsData = yield fetch(`https://api.coincap.io/v2/assets?ids=bitcoin,solana,dogecoin`)
+        .then(res => res.json())
+        .then(data => data.data);
+      const finalRecentCoinsData = yield Promise.all(
+        recentCoinsData.map(async (currency: any) => {
+          const currentTime = new Date().getTime();
+          const startTime = new Date(Date.now() - 1000 * 60 * 60 * 24).getTime();
+
+          const chartsData = fetch(`https://api.coincap.io/v2/assets/${currency.id}/history?interval=m5&start=${startTime}&end=${currentTime}`)
+            .then(res => res.json())
+            .then(data => data.data);
+
+          const resolvedChartsData = await chartsData;
+
+          return { ...currency, chartData: resolvedChartsData, icon: CRYPTOCURRENCIES.find(c => c.id === currency.id)?.icon };
+        })
+      );
+
+      store.setRecentCoinsData(finalRecentCoinsData);
+
+      const assetsCoinsData = yield fetch(`https://api.coincap.io/v2/assets?ids=monero,xrp,litecoin`)
+        .then(res => res.json())
+        .then(data => data.data);
+
+      const finalAssetsCoinsDat = yield Promise.all(
+        assetsCoinsData.map(async (currency: any) => {
+          const currentTime = new Date().getTime();
+          const startTime = new Date(Date.now() - 1000 * 60 * 60 * 24).getTime();
+
+          const chartsData = fetch(`https://api.coincap.io/v2/assets/${currency.id}/history?interval=m5&start=${startTime}&end=${currentTime}`)
+            .then(res => res.json())
+            .then(data => data.data);
+
+          const resolvedChartsData = await chartsData;
+
+          return { ...currency, chartData: resolvedChartsData, icon: CRYPTOCURRENCIES.find(c => c.id === currency.id)?.icon };
+        })
+      );
+
+      store.setAssetsData(finalAssetsCoinsDat);
     }),
 
     getOffset(): number {
