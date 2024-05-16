@@ -1,13 +1,13 @@
-import { Table, TableBody, TableCell, TableHead, TableHeader } from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import generateChartData from '@/lib/utils/generateChartData';
+import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
+import PriceCell from '../PriceCell';
 import PriceChart from '../PriceChart';
-import { Button } from '../ui/button';
-import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
-import TableSkeleton from './TableSkeleton';
 import { Bitcoin } from '../icons';
-import AnimatedTableRow from './AnimatedTableRow';
+import { Button } from '../ui/button';
+import TableSkeleton from './TableSkeleton';
 
 type Props = { coins: Coin[] };
 
@@ -31,7 +31,7 @@ const AssetsTable = ({ coins }: Props) => {
         {() => (
           <TableBody>
             {coins.map(coin => (
-              <AnimatedTableRow coin={coin} key={coin.id}>
+              <TableRow key={coin.id}>
                 <TableCell>
                   <div className="flex items-center gap-6">
                     {coin.icon ? coin.icon : <Bitcoin />}
@@ -41,9 +41,7 @@ const AssetsTable = ({ coins }: Props) => {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
-                  <span className="flex w-[90px]">{new Intl.NumberFormat('en').format(coin.priceUsd)}</span>
-                </TableCell>
+                <PriceCell coin={coin} />
                 <TableCell>
                   <p className="w-fit rounded-xl bg-white px-1.5 text-black">{new Intl.NumberFormat('en').format(coin.changePercent24Hr)}%</p>
                 </TableCell>
@@ -54,7 +52,7 @@ const AssetsTable = ({ coins }: Props) => {
                 <TableCell>
                   <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>
                 </TableCell>
-              </AnimatedTableRow>
+              </TableRow>
             ))}
           </TableBody>
         )}

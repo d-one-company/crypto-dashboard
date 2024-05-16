@@ -13,13 +13,13 @@ const Sidebar = () => {
         <SidebarItem icon={<Rows2 />} label="Market" href="/market" />
         <SidebarItem icon={<BadgeDollarSign />} label="Exchanges" href="/exchanges" />
       </div>
-      <div className="flex flex-col items-start gap-2">
+      <div className="pointer-events-none flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-gray-jumbo">MORTGAGE</p>
         <SidebarItem icon={<Folders />} label="All files" href="/files" />
         <SidebarItem icon={<ThumbsUp />} label="Rewards" href="/rewards" />
         <SidebarItem icon={<Landmark />} label="My loans" href="/loans" />
       </div>
-      <div className="flex flex-col items-start gap-2">
+      <div className="pointer-events-none flex flex-col items-start gap-2">
         <SidebarItem icon={<Bolt />} label="Settings" href="/settings" />
         <SidebarItem icon={<Brush />} label="Appearance" href="/appearance" />
         <SidebarItem icon={<CircleHelp />} label="Support" href="/support" />

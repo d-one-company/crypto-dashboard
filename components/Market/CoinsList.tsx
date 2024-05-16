@@ -1,14 +1,10 @@
 'use client';
 
 import { Coin } from '@/providers/crypto/useCoinsStore';
-import CoinExcerpt from './CoinExcerpt';
 import { Observer } from 'mobx-react-lite';
-import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
-import { useEffect } from 'react';
+import CoinExcerpt from './CoinExcerpt';
 
-type CoinsListProps = {
-  coins: Coin[];
-};
+type CoinsListProps = { coins: Coin[] };
 
 const CoinsList = ({ coins }: CoinsListProps) => {
   return (

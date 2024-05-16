@@ -2,6 +2,7 @@
 
 import { useCoinsContext } from '@/providers/crypto/CoinsProvider';
 import { Observer } from 'mobx-react-lite';
+import CryptoPrice from './CryptoPrice';
 
 const TopCrypto = () => {
   const {
@@ -29,7 +30,7 @@ const TopCrypto = () => {
                     <span>
                       {coin?.name} ({coin?.symbol})
                     </span>
-                    <span>${new Intl.NumberFormat('en').format(coin?.priceUsd ?? 0)}</span>
+                    <CryptoPrice coin={coin} />
                   </p>
                 </div>
               ))}
