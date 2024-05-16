@@ -1,12 +1,13 @@
 'use client';
 
-import { Bitcoin } from '@/components/icons';
 import PriceChart from '@/components/PriceChart';
+import { Bitcoin } from '@/components/icons';
 import Supply from '@/components/supply/Supply';
 import { cn } from '@/lib/utils';
 import generateChartData from '@/lib/utils/generateChartData';
 import { Coin } from '@/providers/crypto/useCoinsStore';
 import { Observer } from 'mobx-react-lite';
+import RecentTransactionPrice from './RecentTransactionPrice';
 
 type Props = { coin: Coin };
 
@@ -23,14 +24,7 @@ const RecentTransaction = ({ coin }: Props) => {
           <p className="text-foreground-dark">{coin.symbol}</p>
         </div>
       </div>
-      <Observer>
-        {() => (
-          <div className="flex flex-col justify-center gap-0.5 text-xs">
-            <span className="text-white">Price</span>
-            <span className="text-foreground-dark">{Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(coin.priceUsd)}</span>
-          </div>
-        )}
-      </Observer>
+      <Observer>{() => <RecentTransactionPrice coin={coin} />}</Observer>
       <div className="hidden flex-col justify-center gap-0.5 text-xs xl:flex">
         <p className="text-white">Market Cap</p>
         <p className={cn('text-foreground-dark')}>{Intl.NumberFormat('en', { currency: 'USD' }).format(coin.marketCapUsd)}</p>

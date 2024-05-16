@@ -11,6 +11,7 @@ const Assets = () => {
 
   const threeCurrenciesIds = ['monero', 'xrp', 'litecoin'];
   const threeCurrencies = coins.filter(coin => threeCurrenciesIds.includes(coin.id)).slice(0, 3);
+
   return (
     <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea px-7 py-5">
       <p className="text-xl text-grayish-white">Assets</p>
