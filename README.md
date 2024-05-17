@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Crypto Dashboard
 
-## Getting Started
+### Try it out [here](https://crypto.d-one.design)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Crypto Dashboard is an open-source cryptocurrency dashboard that allows users to track the performance of various cryptocurrencies. It's built using Next JS and React, and it's designed to be a user-friendly interface for cryptocurrency enthusiasts. The dashboard provides real-time data on the performance of different cryptocurrencies, including their price, market capitalization, and trading volume. It also includes a portfolio section where users can track their holdings of different cryptocurrencies. API used is [CoinCap](https://coincap.io/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Authentication
+- Dashboard overview
+- Portfolio tracking
+- Market insights
+- Exchanges ranking
+- Real time price updates
+- Coins and exchanges ranking
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
 
-## Learn More
+### Dashboard Page
 
-To learn more about Next.js, take a look at the following resources:
+![Dashboard Page](https://utfs.io/f/858a67c7-5869-49f3-8a21-4ea29e0ad153-hbvaek.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Portfolio
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Portfolio Page](https://utfs.io/f/d7936a0e-6d7c-42b0-b91c-1e5a9d8b7f67-ijvnt4.jpg)
 
-## Deploy on Vercel
+### Market
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Market Page](https://utfs.io/f/5f61ae08-55f8-4db0-b18c-40caf179de41-hvs538.jpg)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Exchanges
+
+![Exchanges Page](https://utfs.io/f/d5b3dd3b-d72c-4624-be04-6c4d7fd134d6-powgc0.jpg)
+
+## Technologies Used
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Next Auth
+- MobX
+- Nivo Charts
+- Drizzle ORM
+
+## Installation
+
+To get a local copy up and running follow these simple steps:
+
+1. Clone the repo
+   ```bash
+   git clone https://github.com/d-one-company/crypto-dashboard.git
+   ```
+2. Install packages
+   ```bash
+   pnpm install
+   ```
+3. Start the development server
+   ```bash
+   pnpm dev
+   ```
+
+## Usage
+
+To use the application, navigate to the `/` route in your browser.
+
+#### Dashboard Page
+
+The Dashboard page is the main page of the application. There are couple of sections on the page. The first section shows your current balance, including the percentage that indicates performance of your portfolio. The second section shows top three currencies by price. The final section is a table of your recent transactions. It shows coin rank, name, price, market cap, supply, trending, and performance chart.
+
+#### Portfolio Page
+
+On the Portfolio page, you can view an example of a portfolio. There are couple of sections on the page. The first section allows you to customize your portfolio. The second section shows buy/sell rates for the cryptocurrencies you have added to your portfolio. The third section is the table of your current assets. And the last section shows the type of tokens you have added to your portfolio.
+
+#### Market Page
+
+The Market page shows a paginated table of the top cryptocurrencies by market capitalization. It displays the table with the coin name, latest price, dynamic price change, volume, and chart that shows the price trend.
+
+#### Exchanges Page
+
+The Exchanges page displays the most popular cryptocurrency exchanges based on their popularity and recent activity. It shows the table with the exchange rank, name, number of traiding pairs, volume, and percentage of market capitalization.
