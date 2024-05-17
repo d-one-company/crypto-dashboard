@@ -1,9 +1,10 @@
 import { ArrowDownIndicator, ArrowUpIndicator } from '@/components/ArrowIndicators';
 import { Coin } from '@/providers/crypto/useCoinsStore';
+import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 type Props = { coin: Coin };
 
-const RecentTransactionPrice = ({ coin }: Props) => {
+const RecentTransactionPrice = observer(({ coin }: Props) => {
   const [arrow, setArrow] = useState(<ArrowUpIndicator />);
   const [prevPrice, setPrevPrice] = useState(coin.priceUsd);
 
@@ -25,6 +26,6 @@ const RecentTransactionPrice = ({ coin }: Props) => {
       </div>
     </div>
   );
-};
+});
 
 export default RecentTransactionPrice;

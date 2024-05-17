@@ -115,7 +115,7 @@ const useCoinsStore = () => {
 
     fetchCoins: flow(function* () {
       const limit = store.pageControl.limit as number;
-      const coinsData = yield fetch(`https://api.coincap.io/v2/assets?limit=${limit}`)
+      const coinsData: Coin[] = yield fetch(`https://api.coincap.io/v2/assets?limit=${limit}`)
         .then(res => res.json())
         .then(data => data.data);
 
@@ -199,7 +199,7 @@ const useCoinsStore = () => {
       store.decreasePage();
       const offset = store.getOffset() as number;
       const limit = store.pageControl.limit as number;
-      const newCoins = yield fetch(`https://api.coincap.io/v2/assets?limit=${limit}&offset=${offset}`)
+      const newCoins: Coin[] = yield fetch(`https://api.coincap.io/v2/assets?limit=${limit}&offset=${offset}`)
         .then(res => res.json())
         .then(data => data.data);
 
@@ -284,23 +284,12 @@ const useCoinsStore = () => {
         return;
       }
 
-      let messageBuffer: string | null = null;
-      let processingInterval = null;
-
       store.socket.onmessage = event => {
-        messageBuffer = event.data;
+        const newPrices = JSON.parse(event.data);
+        store.changeCoinsPrice(newPrices);
       };
 
-      processingInterval = setInterval(() => {
-        if (messageBuffer) {
-          const newPrices = JSON.parse(messageBuffer);
-          store.changeCoinsPrice(newPrices);
-          messageBuffer = null;
-        }
-      }, 2000);
-
       store.socket.onclose = () => {
-        if (processingInterval) clearInterval(processingInterval);
         setTimeout(() => store.startSocket(), 5000);
       };
     },

@@ -1,14 +1,14 @@
 'use client';
 
 import { Coin } from '@/providers/crypto/useCoinsStore';
-import { Observer } from 'mobx-react-lite';
+import { Observer, observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
 import { ArrowDownIndicator, ArrowUpIndicator } from './ArrowIndicators';
 import { TableCell } from './ui/table';
 
 type Props = { coin: Coin };
 
-const PriceCell = ({ coin }: Props) => {
+const PriceCell = observer(({ coin }: Props) => {
   const [arrow, setArrow] = useState(<ArrowUpIndicator />);
   const [prevPrice, setPrevPrice] = useState(coin.priceUsd);
 
@@ -31,6 +31,6 @@ const PriceCell = ({ coin }: Props) => {
       )}
     </Observer>
   );
-};
+});
 
 export default PriceCell;
