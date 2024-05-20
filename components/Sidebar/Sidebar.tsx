@@ -8,7 +8,7 @@ const Sidebar = () => {
       <Profile />
       <div className="flex flex-col items-start gap-2">
         <p className="px-3 text-sm text-gray-jumbo">MENU</p>
-        <SidebarItem icon={<Home />} label="Dashboard" href="/dashboard" />
+        <SidebarItem icon={<Home />} label="Dashboard" href="/" />
         <SidebarItem icon={<Vault />} label="Portfolio" href="/portfolio" />
         <SidebarItem icon={<Rows2 />} label="Market" href="/market" />
         <SidebarItem icon={<BadgeDollarSign />} label="Exchanges" href="/exchanges" />

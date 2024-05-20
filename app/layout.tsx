@@ -1,4 +1,3 @@
-import SessionProvider from '@/providers/SessionProvider';
 import CoinsProvider from '@/providers/crypto/CoinsProvider';
 import ExchangesProvider from '@/providers/crypto/ExchangesProvider';
 import type { Metadata } from 'next';
@@ -18,16 +17,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider>
-          <CoinsProvider>
-            <ExchangesProvider>
-              <div className="flex md:grid md:grid-cols-[280px_auto]">
-                <Sidebar />
-                {children}
-              </div>
-            </ExchangesProvider>
-          </CoinsProvider>
-        </SessionProvider>
+        <CoinsProvider>
+          <ExchangesProvider>
+            <div className="flex md:grid md:grid-cols-[280px_auto]">
+              <Sidebar />
+              {children}
+            </div>
+          </ExchangesProvider>
+        </CoinsProvider>
       </body>
     </html>
   );
