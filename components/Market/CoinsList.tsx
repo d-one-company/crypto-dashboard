@@ -14,7 +14,7 @@ const CoinsList = ({ coins }: CoinsListProps) => {
         <div className="text-sm text-gray-200/60">Latest Price</div>
         <div className="text-sm text-gray-200/60">Dynamic</div>
         <div className="text-sm text-gray-200/60">Volume</div>
-        <div className="text-sm text-gray-200/60">Chart</div>
+        <div className="text-sm text-gray-200/60">Chart (24h)</div>
       </div>
       <Observer>{() => <div className="flex flex-col">{coins?.map((coin, idx) => <CoinExcerpt key={`${coin.id}-${idx}`} coin={coin} />)}</div>}</Observer>
     </>

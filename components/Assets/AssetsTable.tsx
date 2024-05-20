@@ -23,7 +23,7 @@ const AssetsTable = ({ coins }: Props) => {
         <TableHead className="text-sm text-gray-200/60">Latest price</TableHead>
         <TableHead className="text-sm text-gray-200/60">Dynamic</TableHead>
         <TableHead className="text-sm text-gray-200/60">Volume</TableHead>
-        <TableHead className="text-sm text-gray-200/60">Chart</TableHead>
+        <TableHead className="text-sm text-gray-200/60">Chart (24h)</TableHead>
         <TableHead className="text-sm text-gray-200/60">Action</TableHead>
       </TableHeader>
 
