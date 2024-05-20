@@ -9,7 +9,7 @@ type SupplyProps = {
 
 const Supply = ({ supply, maxSupply, symbol }: SupplyProps) => {
   return (
-    <div className="flex flex-col justify-center gap-1 text-xs">
+    <div className="mt-2 flex flex-col justify-start gap-1 text-xs">
       <p className="text-white">Circulating Supply</p>
       {maxSupply ? (
         <Tooltip.Provider delayDuration={150}>
