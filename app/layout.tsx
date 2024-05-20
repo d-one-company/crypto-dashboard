@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import CoinsProvider from '@/providers/crypto/CoinsProvider';
 import ExchangesProvider from '@/providers/crypto/ExchangesProvider';
 import type { Metadata } from 'next';
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Banner />
         <CoinsProvider>
           <ExchangesProvider>
             <div className="flex md:grid md:grid-cols-[280px_auto]">
