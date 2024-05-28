@@ -1,12 +1,13 @@
 import Assets from '@/components/Assets/Assets';
 import CoinCard from '@/components/Cards/CoinCard';
-import CoinChartCard from '@/components/Cards/CoinChartCard/Kraken';
+import CoinChartCard from '@/components/Cards/CoinChartCard';
 import CustomisePortfolio from '@/components/Cards/CustomisePortfolio';
 import PageDivider from '@/components/Page/PageDivider';
 import PageHeader from '@/components/Page/PageHeader';
 import PageTitle from '@/components/Page/PageTitle';
 import PageWrapper from '@/components/Page/PageWrapper';
 import TypeOfTokens from '@/components/TypeOfTokens';
+import TradesProvider from '@/providers/crypto/TradesProvider';
 
 const Page = () => {
   return (
@@ -21,7 +22,9 @@ const Page = () => {
           <div className="flex w-full flex-col gap-4">
             <div className="flex items-center gap-14">
               <CustomisePortfolio />
-              <CoinChartCard />
+              <TradesProvider>
+                <CoinChartCard />
+              </TradesProvider>
             </div>
             <Assets />
           </div>
