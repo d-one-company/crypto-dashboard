@@ -6,7 +6,6 @@ import { Observer } from 'mobx-react-lite';
 import PriceCell from '../PriceCell';
 import PriceChart from '../PriceChart';
 import { Bitcoin } from '../icons';
-import { Button } from '../ui/button';
 import TableSkeleton from './TableSkeleton';
 
 type Props = { coins: Coin[] };
@@ -24,7 +23,6 @@ const AssetsTable = ({ coins }: Props) => {
         <TableHead className="text-sm text-gray-200/60">Dynamic</TableHead>
         <TableHead className="text-sm text-gray-200/60">Volume</TableHead>
         <TableHead className="text-sm text-gray-200/60">Chart (24h)</TableHead>
-        <TableHead className="text-sm text-gray-200/60">Action</TableHead>
       </TableHeader>
 
       <Observer>
@@ -48,9 +46,6 @@ const AssetsTable = ({ coins }: Props) => {
                 <TableCell>{new Intl.NumberFormat('en').format(coin.volumeUsd24Hr)}</TableCell>
                 <TableCell>
                   <PriceChart data={[generateChartData(coin)]} curve="basis" />
-                </TableCell>
-                <TableCell>
-                  <Button className="w-fit bg-gradient-to-r from-baltic-sea via-black-shark to-baltic-sea text-grayish-white">Trade</Button>
                 </TableCell>
               </TableRow>
             ))}

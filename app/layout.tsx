@@ -16,14 +16,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-hidden">
       <body className={inter.className}>
         <Banner />
         <CoinsProvider>
           <ExchangesProvider>
             <div className="flex md:grid md:grid-cols-[280px_auto]">
               <Sidebar />
-              {children}
+              <div className="flex h-screen flex-col overflow-auto">{children}</div>
             </div>
           </ExchangesProvider>
         </CoinsProvider>
