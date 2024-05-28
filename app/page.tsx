@@ -4,7 +4,7 @@ import RecentTransactionsList from './RecentTransactionsList';
 
 const Dashboard = () => {
   return (
-    <div className="flex h-screen flex-grow flex-col gap-5 bg-background px-5 py-8">
+    <div className="flex flex-grow flex-col gap-5 bg-background px-5 py-8">
       <h1 className="text-lg">Hi, Alex</h1>
       <div className="flex items-stretch gap-4">
         <div className="min-w-[400px] rounded-xl bg-card-dark p-5 shadow-card">
