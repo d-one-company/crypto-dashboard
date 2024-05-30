@@ -1,36 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": ["NODE_ENV"],
-
+  "globalDotEnv": ["**/.env.*local"],
+  "globalEnv": ["TRADE_SERVER_PORT", "NEXT_PUBLIC_TRADE_SERVER_URL"],
   "pipeline": {
-    "lint:js": {
-      "cache": false,
-      "outputs": [".eslintjscache"]
-    },
-    "lint:css": {
-      "cache": false,
-      "outputs": [".stylelintcache"]
-    },
-    "lint": {
-      "cache": false,
-      "outputs": [".eslintjscache", ".eslintmdcache", ".stylelintcache"]
-    },
-    "prettier": {
-      "cache": false,
-      "outputs": [".prettiercache"]
-    },
-    "prettier:fix": {
-      "cache": false,
-      "outputs": [".prettiercache"]
-    },
-    "format": {
-      "cache": false,
-      "outputs": [
-        ".eslintjscache",
-        ".eslintmdcache",
-        ".stylelintcache",
-        ".prettiercache"
-      ]
-    }
+    "build": { "dependsOn": ["^build"] },
+    "lint": { "dependsOn": ["^build"] },
+    "dev": { "dependsOn": ["^build"], "cache": false, "persistent": true },
+    "clean": { "cache": false }
   }
 }
