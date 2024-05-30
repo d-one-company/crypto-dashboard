@@ -7,8 +7,13 @@ export const revalidate = 0;
 
 const CoinChartCard = async () => {
   const tradesUrl = `${process.env.NEXT_PUBLIC_TRADE_SERVER_URL}/trades`;
-  const response = await fetch(tradesUrl, { cache: 'no-store' });
-  const trades = (await response.json()) as TradesData[];
+
+  let trades: TradesData[] | undefined;
+
+  try {
+    const response = await fetch(tradesUrl, { cache: 'no-store' });
+    trades = await response.json();
+  } catch {}
 
   return (
     <div className="flex flex-col gap-3 rounded-lg border border-baltic-sea bg-card-dark py-5">
