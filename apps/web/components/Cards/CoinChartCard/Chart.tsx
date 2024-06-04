@@ -39,7 +39,7 @@ const Chart = observer(() => {
                   <Bar key={idx} color={trade.color} height={trade.height} />
                 </Tooltip.Trigger>
                 <Tooltip.Content side="bottom" sideOffset={5} className={cn('mx-1 rounded-lg border-none bg-grayish-white p-2 text-xs text-black', !trade.interval && 'hidden')}>
-                  <p className="mb-0.5">{dayjs(trade.interval).format("DD MMM 'YY h:mm A")}</p>
+                  <p className="mb-0.5">{dayjs(trade.timestamp).format("DD MMM 'YY h:mm A")}</p>
                   <p>Buy volume: {trade.buy.volume.toFixed(4)}</p>
                   <p>Sell volume: {trade.sell.volume.toFixed(4)}</p>
                   <p>

@@ -1,5 +1,6 @@
 export type TradesData = {
     interval: string;
+    timestamp: number;
     open: number;
     close: number;
     buy: {

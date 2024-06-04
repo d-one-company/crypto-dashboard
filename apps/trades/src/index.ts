@@ -1,7 +1,10 @@
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc.js";
 import express from "express";
 import { BASE, MAX_BARS, QUOTE, type Trade, type TradesData } from "shared";
 import { MessageEvent, WebSocket } from "ws";
+
+dayjs.extend(utc);
 
 const trades: TradesData[] = [];
 
@@ -22,16 +25,16 @@ const readSocket = () => {
   }
 
   ws.onmessage = (event: MessageEvent) => {
-    console.log("Received trade");
     const trade = JSON.parse(event.data.toString()) as Trade;
-    const date = dayjs(trade.timestamp);
-    const interval = date.format("YYYY-MM-DD HH:mm");
+    const date = dayjs(trade.timestamp).utc();
+    const interval = date.format("mm");
 
     const index = trades.findIndex((t) => t.interval === interval);
     if (index === -1) {
       if (trades.length >= MAX_BARS) trades.shift();
       trades.push({
         interval,
+        timestamp: trade.timestamp,
         open: trade.price,
         close: trade.price,
         buy: {
