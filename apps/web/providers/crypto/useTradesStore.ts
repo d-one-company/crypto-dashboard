@@ -1,6 +1,9 @@
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
 import { useLocalObservable } from 'mobx-react-lite';
 import { BASE, MAX_BARS, QUOTE, type Trade, type TradesData } from 'shared';
+
+dayjs.extend(utc);
 
 export type Store = {
   trades: TradesData[];
@@ -31,16 +34,15 @@ const useTradesStore = ({ initialTrades }: Props) => {
 
       store.socket.onmessage = event => {
         const trade = JSON.parse(event.data) as Trade;
-        const date = dayjs(trade.timestamp);
-        // const minute = Math.floor(date.minute() / 15) * 15;
-        // const interval = date.minute(minute).format('YYYY-MM-DD HH:mm');
-        const interval = date.format('YYYY-MM-DD HH:mm');
+        const date = dayjs(trade.timestamp).utc();
+        const interval = date.format('mm');
 
         const index = store.trades.findIndex(t => t.interval === interval);
         if (index === -1) {
           if (store.trades.length >= MAX_BARS) store.trades.shift();
           store.trades.push({
             interval,
+            timestamp: trade.timestamp,
             open: trade.price,
             close: trade.price,
             buy: {
