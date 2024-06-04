@@ -1,17 +1,18 @@
 import dayjs from "dayjs";
 import express from "express";
 import { BASE, MAX_BARS, QUOTE, type Trade, type TradesData } from "shared";
-import { WebSocket } from "ws";
+import { MessageEvent, WebSocket } from "ws";
 
 const trades: TradesData[] = [];
 
 let ws: WebSocket;
+let restartWs = true;
 
 const socketUrl = `wss://ws.coincap.io/trades/huobi?base=${BASE}&quote=${QUOTE}`;
 
 const startSocket = () => {
   ws = new WebSocket(socketUrl);
-  ws.onclose = () => setTimeout(() => startSocket(), 5000);
+  if (restartWs) ws.once("close", () => setTimeout(() => startSocket(), 5000));
 };
 
 const readSocket = () => {
@@ -20,7 +21,8 @@ const readSocket = () => {
     return;
   }
 
-  ws.onmessage = (event) => {
+  ws.onmessage = (event: MessageEvent) => {
+    console.log("Received trade");
     const trade = JSON.parse(event.data.toString()) as Trade;
     const date = dayjs(trade.timestamp);
     const interval = date.format("YYYY-MM-DD HH:mm");
@@ -66,6 +68,10 @@ const readSocket = () => {
 
     trades[index] = tradesData;
   };
+
+  ws.onerror = (err) => {
+    console.error("Websocket error", err);
+  };
 };
 
 startSocket();
@@ -81,6 +87,19 @@ app.get("/trades", async (_, res) => {
 
 const port = process.env.TRADE_SERVER_PORT;
 
-app.listen(port, () => {
+app.on("error", (err) => {
+  console.error("Express error", err);
+});
+
+const server = app.listen(port, () => {
   console.log(`Trades server is running on port ${port}`);
 });
+
+function shutdown() {
+  console.log("Shutting down");
+  restartWs = false;
+  server.close();
+  ws.close();
+}
+
+process.on("exit", shutdown);
