@@ -28,12 +28,14 @@ export type Coin = {
 export type Store = {
   coins: Coin[];
   recentCoins: Coin[];
+  topCoins: Coin[];
   assets: Coin[];
   socket: WebSocket | null;
   cachedCoins: Map<string, Coin[]>;
   setCoinsData: (data: Coin[]) => void;
   setAssetsData: (data: Coin[]) => void;
   setRecentCoinsData: (data: Coin[]) => void;
+  setTopCoinsData: (data: Coin[]) => void;
   changeCoinsPrice: (data: Record<string, number>) => void;
   fetchCoins: () => any;
   startSocket: () => void;
@@ -56,6 +58,7 @@ const useCoinsStore = () => {
   const store = useLocalObservable<Store>(() => ({
     coins: [],
     recentCoins: [],
+    topCoins: [],
     assets: [],
     socket: null,
     page: 0,
@@ -83,6 +86,15 @@ const useCoinsStore = () => {
         const index = store.recentCoins.findIndex(c => c.id === data[i].id);
         if (index === -1) {
           store.recentCoins.push(data[i]);
+        }
+      }
+    },
+
+    setTopCoinsData: (data: Coin[]) => {
+      for (let i = 0; i < data.length; i++) {
+        const index = store.topCoins.findIndex(c => c.id === data[i].id);
+        if (index === -1) {
+          store.topCoins.push(data[i]);
         }
       }
     },
@@ -155,6 +167,27 @@ const useCoinsStore = () => {
       );
 
       store.setRecentCoinsData(finalRecentCoinsData);
+
+      const topCoinsData = yield fetch(`https://api.coincap.io/v2/assets?ids=bitcoin,ethereum,binance-coin`)
+        .then(res => res.json())
+        .then(data => data.data);
+
+      const finalTopCoinsData = yield Promise.all(
+        topCoinsData.map(async (currency: any) => {
+          const currentTime = new Date().getTime();
+          const startTime = new Date(Date.now() - 1000 * 60 * 60 * 24).getTime();
+
+          const chartsData = fetch(`https://api.coincap.io/v2/assets/${currency.id}/history?interval=m5&start=${startTime}&end=${currentTime}`)
+            .then(res => res.json())
+            .then(data => data.data);
+
+          const resolvedChartsData = await chartsData;
+
+          return { ...currency, chartData: resolvedChartsData, icon: CRYPTOCURRENCIES.find(c => c.id === currency.id)?.icon };
+        })
+      );
+
+      store.setTopCoinsData(finalTopCoinsData);
 
       const assetsCoinsData = yield fetch(`https://api.coincap.io/v2/assets?ids=monero,xrp,litecoin`)
         .then(res => res.json())
