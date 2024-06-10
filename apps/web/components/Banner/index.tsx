@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const blogUrl = '#'; // `${process.env['COMPANY_WEBSITE_URL']}/blog/crypto`;
+const blogUrl = `${process.env['COMPANY_WEBSITE_URL']}/blog/crypto`;
 
 const Banner = () => {
   return (
