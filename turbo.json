@@ -1,7 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDotEnv": ["**/.env.*local"],
-  "globalEnv": ["TRADE_SERVER_PORT", "NEXT_PUBLIC_TRADE_SERVER_URL"],
+  "globalEnv": [
+    "COMPANY_WEBSITE_URL",
+    "TRADE_SERVER_PORT",
+    "NEXT_PUBLIC_TRADE_SERVER_URL"
+  ],
   "pipeline": {
     "build": { "dependsOn": ["^build"] },
     "lint": { "dependsOn": ["^build"] },
