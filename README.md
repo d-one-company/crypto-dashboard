@@ -4,16 +4,15 @@
 
 ## Description
 
-Crypto Dashboard is an open-source cryptocurrency dashboard that allows users to track the performance of various cryptocurrencies. It's built using Next JS and React, and it's designed to be a user-friendly interface for cryptocurrency enthusiasts. The dashboard provides real-time data on the performance of different cryptocurrencies, including their price, market capitalization, and trading volume. It also includes a portfolio section where users can track their holdings of different cryptocurrencies. API used is [CoinCap](https://coincap.io/).
+Crypto Dashboard is an open-source cryptocurrency dashboard that allows users to track the performance of various cryptocurrencies. It's built using Next.js and React, and it's designed to be a user-friendly interface for cryptocurrency enthusiasts. The dashboard provides real-time data on the performance of different cryptocurrencies, including their price, market capitalization, and trading volume. It also includes a portfolio section where users can track their holdings of different cryptocurrencies. This was made possible using the [CoinCap](https://coincap.io) API.
 
 ## Features
 
-- Dashboard overview
-- Portfolio tracking
-- Market insights
-- Exchanges ranking
-- Real time price updates
-- Coins and exchanges ranking
+- Dashboard Overview
+- Portfolio Tracking
+- Market Insights
+- Coin & Exchange Ranking
+- Real-Time Price Updates
 
 ## Screenshots
 
