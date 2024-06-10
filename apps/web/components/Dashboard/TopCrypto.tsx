@@ -6,10 +6,8 @@ import CryptoPrice from './CryptoPrice';
 
 const TopCrypto = () => {
   const {
-    coinsStore: { coins },
+    coinsStore: { topCoins },
   } = useCoinsContext();
-
-  const threeCoinsIds = ['bitcoin', 'ethereum', 'binance-coin'];
 
   return (
     <Observer>
@@ -20,20 +18,17 @@ const TopCrypto = () => {
             <p className="text-sm">Price</p>
           </div>
           <div className="flex h-full flex-col justify-between gap-2 py-5 text-xs">
-            {coins
-              .filter(coin => threeCoinsIds.includes(coin.id))
-              .slice(0, 3)
-              .map(coin => (
-                <div key={coin?.id} className="flex items-center gap-3">
-                  {coin.icon}
-                  <p className="flex grow justify-between gap-2 text-white">
-                    <span>
-                      {coin?.name} ({coin?.symbol})
-                    </span>
-                    <CryptoPrice coin={coin} />
-                  </p>
-                </div>
-              ))}
+            {topCoins.map(coin => (
+              <div key={coin?.id} className="flex items-center gap-3">
+                {coin.icon}
+                <p className="flex grow justify-between gap-2 text-white">
+                  <span>
+                    {coin?.name} ({coin?.symbol})
+                  </span>
+                  <CryptoPrice coin={coin} />
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       )}
