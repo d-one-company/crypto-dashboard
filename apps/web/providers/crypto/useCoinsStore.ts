@@ -118,6 +118,11 @@ const useCoinsStore = () => {
           store.recentCoins[recentIndex].priceUsd = data[coinId];
         }
 
+        const topIndex = store.topCoins.findIndex(c => c.id === coinId);
+        if (topIndex !== -1) {
+          store.topCoins[topIndex].priceUsd = data[coinId];
+        }
+
         const assetsIndex = store.assets.findIndex(c => c.id === coinId);
         if (assetsIndex !== -1) {
           store.assets[assetsIndex].priceUsd = data[coinId];
